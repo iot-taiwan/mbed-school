@@ -1,0 +1,8 @@
+*.swp
+*.swo
+.local
+*.DS_Store
+node_modules
+*.pid
+*.sublime-*
+*.log

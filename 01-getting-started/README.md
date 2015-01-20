@@ -37,3 +37,33 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃�
 
 圖 1.3：Drag and Drop 更新 firmware
 
+## 實習：跑馬燈
+
+```
+#include "mbed.h"
+
+DigitalOut myled1(LED1);
+DigitalOut myled2(LED2);
+DigitalOut myled3(LED3);
+DigitalOut myled4(LED4);
+
+unsigned int mask = 0x1;
+
+int main() {
+    wait(0.8);
+    
+    while(1) {    
+        myled1 = mask & 0x1;
+        myled2 = mask & 0x2;
+        myled3 = mask & 0x4;
+        myled4 = mask & 0x8;
+        
+        wait(0.2);
+        
+        mask = mask << 1;
+        
+        if (mask & 0x10) 
+            mask = 0x1;
+    }
+}
+```

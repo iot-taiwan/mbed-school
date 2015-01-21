@@ -37,7 +37,7 @@
 
 圖 2.6：LED 針腳長端插上麵包板正極，短端插上麵包板負極
 
-![圖 2.7：LED 點亮，測試成功](http://i.imgur.com/1om5KME.jpg)
+![圖 2.7：LED 點亮，測試成功](http://i.imgur.com/Iom5KME.jpg)
 
 圖 2.7：LED 點亮，測試成功
 

@@ -37,7 +37,7 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃�
 
 圖 1.3：Drag and Drop 更新 firmware
 
-mbed 除了具有大量的 GPIO，可與各種 sensor 結合，透過演算法，實作各類應用。
+LPC1786 開發板有大量的 GPIO，可與各種 sensor device 結合，並透過演算法的實作，發展各式應用。
 
 ARM mbed 的本身更具備 networking feature（例如：3G、ethernet），因此不再只是扮演被動傳送資料的角色，而是透過 Websocket 建立連線，以 REST API 主動提供 client side 取得資料。
 

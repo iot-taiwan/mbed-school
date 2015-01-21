@@ -38,9 +38,10 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃�
 圖 1.3：Drag and Drop 更新 firmware
 
 mbed 除了具有大量的 GPIO，可與各種 sensor 結合，透過演算法，實作各類應用。
-mbed 的本身更具備 networking feature(ex:  3G, ethernet)，因此不再只是扮演被動傳送資料的角色，
-而是透過 web socket 建立連線，以 REST API 主動提供 client side 取得資料。
-所以 mbed 不應被當成 GPIO device，而是一種 REST device。
+
+ARM mbed 的本身更具備 networking feature（例如：3G、ethernet），因此不再只是扮演被動傳送資料的角色，而是透過 Websocket 建立連線，以 REST API 主動提供 client side 取得資料。
+
+所以 LPC1768 不應被當成 GPIO device，而是一種 REST device。
 
 ![圖 1.4：本書架構](1.4_road_map.png)
 

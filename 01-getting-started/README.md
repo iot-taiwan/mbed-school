@@ -43,7 +43,7 @@ ARM mbed 的本身更具備 networking feature（例如：3G、ethernet），因
 
 所以 LPC1768 不應被當成 GPIO device，而是一種 REST device。
 
-![圖 1.4：本書架構](1.4_road_map.png)
+![圖 1.4：本書架構](http://i.imgur.com/xWO0DEd.jpg)
 
 圖 1.4：本書架構
 

@@ -1,6 +1,24 @@
-# 第 2 章：認識 GPIO
+# 第 2 章：學習 ARM mbed GPIO 控制
 
-## 電子零件介紹
+## 準備工作
+
+### LPC1768 的 GPIO 腳位控制
+
+本章將使用 ARM mbed 的 *DigitalOut* 巨集來控制 GPIO 腳位。以下是幾個基本觀念：
+
+1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 LED 燈。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
+
+2. 使用面包板進行實驗。
+
+3. 將 GPIO p21 定義為輸出：
+
+```
+DigitalOut myled(p21);
+```
+
+撰寫程式時，只要將 *mbed.h* 引入，即可使用 *DigitalOut* 巨集。
+
+### 電子零件介紹
 
 準備材料如下：
 

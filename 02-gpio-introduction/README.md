@@ -96,9 +96,7 @@ int main() {
 本範例程式下載網址：
 
 ```
-
 https://developer.mbed.org/users/mbedschool/code/ch2_mbed_led_control/
-
 ```
 
 ![圖 2.11：測試成功](http://i.imgur.com/GV3hZjz.jpg)

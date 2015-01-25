@@ -77,6 +77,21 @@ int main() {
 
 ## 使用 Static IP 位址
 
+```
+#include "mbed.h"
+#include "EthernetInterface.h"
+
+int main(void) {
+    eth = new EthernetInterface;
+    eth->init("192.168.21.81", "255.255.255.0", "192.168.21.2" );
+
+    if (eth->connect()) 
+        return -1;
+
+    printf("IP Address is %s\r\n", eth->getIPAddress());
+}
+```
+
 ## MQTT Client
 
 ```

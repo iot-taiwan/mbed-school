@@ -45,8 +45,8 @@ Port 0 簡介：
  * P0[30]：USB-
  * P0[31]：N/A
 
-  * “-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
-  * “N/A“：表示 Not available。
+“-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
+“N/A“：表示 Not available。
  
 * Port 0 是一個 32-bit 的 I/O port，每一個 bit 都能直接被控制。Port 0 所有 pin 的操作取決於 pin connect block 選出的功能。
 
@@ -92,8 +92,8 @@ Port 1 簡介：
  * P1[30]：p19
  * P1[31]：p20
 
-  * “-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
-  * “N/A“：表示 Not available。
+“-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
+“N/A“：表示 Not available。
 
 * Port 1 是一個 32-bit 的 I/O port，每一個 bit 都能直接被控制。Port 1 所有 pin 的操作取決於 pin connect block 選出的功能。
 
@@ -139,8 +139,8 @@ Port 2 簡介：
  * P2[30]：N/A
  * P2[31]：N/A
 
-  * “-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
-  * “N/A“：表示 Not available。
+“-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
+“N/A“：表示 Not available。
 
 * Port 2 是一個 32-bit 的 I/O port，每一個 bit 都能直接被控制。Port 2 所有 pin 的操作取決於 pin connect block 選出的功能。
 
@@ -186,8 +186,8 @@ Port 3 簡介：
  * P3[30]：N/A
  * P3[31]：N/A
 
-  * “-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
-  * “N/A“：表示 Not available。
+“-”：表示沒有特殊對應之 ARM mbed pin，但仍為 GPIO pin。
+“N/A“：表示 Not available。
 
 * Port 3 是一個 32-bit 的 I/O port，每一個 bit 都能直接被控制。Port 3 所有 pin 的操作取決於 pin connect block 選出的功能。
 

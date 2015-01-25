@@ -203,7 +203,7 @@ Port 3 簡介：
 3. 紅色導線 x 1，黑色導線 x 1，黃色導線 x 1
 4. Grove - Dust Sensor x 1
 
-![圖 5.1：本章節使用的零件](5.1_parts.png)
+![圖 5.1：本章節使用的零件](5.1_parts.jpeg)
 圖 5.1：本章節使用的零件
 
 ## Dust Sensor 硬件原型製作
@@ -216,7 +216,7 @@ Port 3 簡介：
 4. 將黑色導線之一端接在 Grove - Dust Sensor 的黑色母頭端，黑色導線另一端接在 mbed shield GND 腳位上。
 5. 完成！
 
-![圖 5.2：空氣品質偵測器的原型](5.2_air_quality_detector_prototype.png)
+![圖 5.2：空氣品質偵測器的原型](5.2_air_quality_detector_prototype.jpeg)
 圖 5.2：空氣品質偵測器的原型
 
 ## Lightweight Web Server
@@ -280,7 +280,7 @@ int main() {
 }
 ```
 
-![圖 5.3： Web server 測試成功](5.3_web_server.png)
+![圖 5.3： Web server 測試成功](5.3_web_server.jpeg)
 圖 5.3： Web server 測試成功
 
 這個程式碼範例是以 Static IP 的方式設定 Ethernet，未來會加入以 DHCP 設定 Ethernet 的方式。

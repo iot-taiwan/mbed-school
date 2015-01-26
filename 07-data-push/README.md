@@ -26,7 +26,7 @@ Websocket 是 HTML5 標準的一項技術，Websocket 讓 client 與 server 能�
 
 ## Websocket Channel Server
 
-Websocket channel server 扮演封裝 IoT 物件的角色，對 Websocket server 來說，只要能定義好「channel」的結構，就能封裝數以萬計、千萬計的 IoT 物件。抽像上來看，ARM mbed 仍然是 server 端的意思，就是如此。
+Websocket channel server 扮演封裝 IoT 物件的角色，對 Websocket server 來說，只要能定義好「channel」的結構，就能封裝數以萬計、千萬計的 IoT 物件。「抽像上來看，ARM mbed 仍然是 server 端」，就是這樣的觀念。
 
 ARM mbed 官方就提供了 Websocket channel server 的服務：
 

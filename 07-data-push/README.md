@@ -1,4 +1,4 @@
-# 第 6 章：Websocket
+# 第 7 章：IoT 物件與 Websocket 技術
 
 Websocket 是 HTML5 標準的一項技術，Websocket 讓 client 與 server 能建立永續性的 TCP 連線。簡單來說，有了 Websocket，就能實作出 real-time data streaming 機制。
 

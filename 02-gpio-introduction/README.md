@@ -8,7 +8,7 @@
 
 1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 LED 燈。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
 
-2. 使用面包板進行實驗。
+2. 使用麵包板進行實驗。
 
 3. 將 GPIO p21 定義為輸出：
 
@@ -61,9 +61,9 @@ DigitalOut myled(p21);
 
 ## 實習：以 DigitalOut 控制 LED 
 
-![圖 2.8：將 LPC 1768 開發版 插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
+![圖 2.8：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
 
-圖 2.8：將 LPC 1768 開發版 插上麵包板
+圖 2.8：將 LPC 1768 開發版插上麵包板
 
 ![圖 2.9：紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極](http://i.imgur.com/LT0xdWQ.jpg)
 

@@ -1,5 +1,17 @@
 # 第 1 章：ARM mbed 起步走
 
+## 歡迎來到 Web of Things 世界
+
+在 IoT 的技發發展藍圖裡，描述了 IoT 的 4 個發展階段，其中第 4 個階段就是 WoT。而目前正好處於第 4 個 IoT 發展階段。Google 在 2014 年底發起的 Physical Web 計畫，是一個非常先期的研究計畫，就是為了 IoT 的新階段預做準備 [1]。
+
+IoT 的第 4 個階段，將聚焦在 Advanced Sensor Fusion 與 Physical-World Web 層面，這二個層面簡單來說，就是 WoT。根據維期百科上的定義，WoT 是 IoT 的 Application Layer，並且是使用 Web 技術來打造 application。也就是說，IoT + Web-enabled technologies 就是 WoT。
+
+目前有許多 ARM mbed 的開發板，這些開發板並不是「另一個 Arduino」硬體，而是更能符合 WoT 理念的 RESTful device。同樣的硬體，不同的觀念、技術框架與商業思維，能帶來不同的產品思維與商業模式。所以，ARM mbed 與 WoT 帶來的，將是一場新的革命與機會。
+
+本書前 4 章是 ARM mbed 的入門學習。從第 5 章開始，將加入 REST device 觀念，透過一系列的創作與實習，帶給大家不一樣的 IoT 技術視野。
+
+[1]: http://www.jollen.org/blog/2015/01/arm-mbed-1-physical-web.html
+
 ## 進入 Workspace
 
 ARM mbed 的開發，必須使用 mbed.org 官方的 on-line compiler。將 LPC1786 與電腦連接後，進入 mbed.org 申請開發者帳號；進入 Compiler 環境後，可以看到圖 1.1 的 workspace。

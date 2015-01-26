@@ -2,6 +2,8 @@
 
 Websocket 是 HTML5 標準的一項技術，Websocket 讓 client 與 server 能建立永續性的 TCP 連線。簡單來說，有了 Websocket，就能實作出 real-time data streaming 機制。
 
+以下將說明 IoT 第 4 階段，也就是 WoT 最重要的一個觀念：使用 Websocket channel server 來封裝 IoT objects，讓 IoT devices 成為抽象化的 Websocket server。
+
 ## 關於 IoT 與 Websocket
 
 一般來說，Websocket 的使用案例（use case）是 server push（data push）機制，也就是說，ARM mbed 物件本身，應該是扮演 Websocket server 的角色。但現實層面，讓 IoT 分演 Websocket server 的話，會有幾個技術問題：

@@ -10,7 +10,7 @@ Websocket 能讓 client 與 server 能建立永續性的 TCP 連線。簡單來�
 
 ## 關於 IoT 與 Websocket
 
-一般來說，Websocket 的使用案例（use case）是 server push（data push）機制，也就是說，ARM mbed 物件本身，應該是扮演 Websocket server 的角色。但現實層面，讓 IoT 分演 Websocket server 的話，會有幾個技術問題：
+一般來說，Websocket 的使用案例（use case）是 server push（data push）機制，也就是說，ARM mbed 物件本身，應該是扮演 Websocket server 的角色。但現實層面，讓 IoT 扮演 Websocket server 的話，會有幾個技術問題：
 
 * ARM mbed 要管理 client 端的 connections
 * 需要更多的內存來維護 client connections

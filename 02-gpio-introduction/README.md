@@ -75,6 +75,10 @@ DigitalOut myled(p21);
 
 4. 撰寫程式碼
 
+撰寫第一個 ARM mbed 程式碼。首先，必須引入 *mbed.h* 標頭檔，接著將連接 LED 的 GPIO Pin 腳定義為數位輸出。ARM mbed 提供一個 *wait()* API，用來暫停程式碼的執行，可利用此 API 練習撰寫「LED 閃爍」程式。
+
+程式碼如下：
+
 ```
 #include "mbed.h"
 
@@ -99,14 +103,16 @@ int main() {
 https://developer.mbed.org/users/mbedschool/code/ch2_mbed_led_control/
 ```
 
+可在 mbed 的 online workspace 尋找 *mbedschool* 帳號，即可找到本書的所有範例。
+
 ![圖 2.11：測試成功](http://i.imgur.com/GV3hZjz.jpg)
 
 圖 2.11：測試成功
 
 ## 延伸練習
 
+動手做勞作，發揮想像力，即使只是簡單的 LED 閃爍程式，也能做出有趣的小東西。
+
 ![圖 2.12：LED 瓢蟲](http://i.imgur.com/zo38TF0.jpg)
 
 圖 2.12：LED 瓢蟲
-
-試著做看看吧！

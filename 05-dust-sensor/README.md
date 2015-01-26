@@ -203,7 +203,7 @@ Port 3 簡介：
 3. 紅色導線 x 1，黑色導線 x 1，黃色導線 x 1
 4. Grove - Dust Sensor x 1
 
-![圖 5.1：本章節使用的零件](5.1_parts.jpeg)
+![圖 5.1：本章節使用的零件](5.1_parts.jpg)
 圖 5.1：本章節使用的零件
 
 ## Dust Sensor 硬件原型製作
@@ -211,12 +211,12 @@ Port 3 簡介：
 步驟如下：
 
 1. 將 ARM mbed LPC1768 開發版插在 mbed shield（須依照 mbed shield 上的圖示方向）。
-2. 將黃色導線之一端接在 Grove - Dust Sensor 的黃色母頭端，黃色導線另一端接在 mbed shield P15～P20（AnalogIn）任一腳位上。
+2. 將黃色導線之一端接在 Grove - Dust Sensor 的黃色母頭端，黃色導線另一端接在 mbed shield P5～P30 DigitalIn 任一腳位上，除了 P19、P20 腳位。
 3. 將紅色導線之一端接在 Grove - Dust Sensor 的紅色母頭端，紅色導線另一端接在 mbed shield 5V 腳位上。
 4. 將黑色導線之一端接在 Grove - Dust Sensor 的黑色母頭端，黑色導線另一端接在 mbed shield GND 腳位上。
 5. 完成！
 
-![圖 5.2：空氣品質偵測器的原型](5.2_air_quality_detector_prototype.jpeg)
+![圖 5.2：空氣品質偵測器的原型](5.2_air_quality_detector_prototype.jpg)
 圖 5.2：空氣品質偵測器的原型
 
 ## Lightweight Web Server
@@ -225,31 +225,55 @@ Port 3 簡介：
 
 ```
 #include "mbed.h"
-#include "rtos.h"
 #include "EthernetInterface.h"
-#include "mbed_rpc.h"
 #include "HTTPD.h"
 
 EthernetInterface *eth;
 HTTPD *httpd;
 
 Serial pc(USBTX, USBRX);
+InterruptIn probe(p8);
 LocalFileSystem local("local");
-DigitalOut led1(LED1), led2(LED2), led3(LED3), led4(LED4);
-AnalogIn   ain(p19);
-float ainValue =0;
+DigitalOut led1(LED1), led2(LED2);
+Timer timer;
+Ticker ticker;
+
+uint32_t low_time = 0;
+
+void down();
+void up();
+
+void tick() {
+    pc.printf("%d us, %f %%\r\n", low_time, low_time / (30.0 * 1000000));
+    low_time = 0;
+}
+ 
+void down() {
+    probe.rise(&up);
+    led1 = 0;
+    timer.start();
+}
+
+void up() {
+    led1 = 1;
+    timer.stop();
+    probe.fall(&down);
+    
+    low_time += timer.read_us();
+    timer.reset();
+}
 
 void callback_api(int id) {
     int i, n;
-    char ainbuf[256];
+    char low_time_buf[256];
     char buf[256];
-    ainValue = ain.read();
-    sprintf( ainbuf, "%f", ainValue);
+    
+    sprintf( low_time_buf, "%f", low_time / (30.0 * 1000000));
     strcpy(buf, "{"); 
-    strcat(buf, "success: true ,");
+    strcat(buf, "success: true,");
     strcat(buf, "data: {");
-    strcat(buf, "dustvalue: ");
-    strcat(buf, ainbuf);
+    strcat(buf, "lowpulseoccupancytime: ");
+    strcat(buf, low_time_buf);
     strcat(buf, "}");
     strcat(buf, "}");
 
@@ -263,6 +287,11 @@ void callback_api(int id) {
 }
 
 int main() {
+    pc.baud(115200);
+    pc.printf("Dust Sensor test\r\n");
+    probe.fall(&down);
+    ticker.attach(tick, 30);
+    
     printf("HTTP Server...\r\n");
 
     eth = new EthernetInterface;
@@ -276,11 +305,12 @@ int main() {
     httpd->attach("/", "/local/");
     httpd->start(80);
     printf("httpd ready\r\n");
-    led1 = 1;  
+    led2 = 1;  
 }
+
 ```
 
-![圖 5.3： Web server 測試成功](5.3_web_server.jpeg)
+![圖 5.3： Web server 測試成功](5.3_web_server.jpg)
 圖 5.3： Web server 測試成功
 
 這個程式碼範例是以 Static IP 的方式設定 Ethernet，未來會加入以 DHCP 設定 Ethernet 的方式。

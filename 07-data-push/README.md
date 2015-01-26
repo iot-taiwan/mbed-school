@@ -20,7 +20,7 @@ Websocket 是 HTML5 標準的一項技術，Websocket 讓 client 與 server 能�
 3. 用戶（user）與 Websocket channel server 建立 Websocket connection
 4. 用戶接收 Websocket channel server 的即時資料（data push）
 
-3. 抽像上來看，ARM mbed 仍然是 server 端，而不是 client 端；真正的 client 端是用戶。
+抽像上來看，ARM mbed 仍然是 server 端，而不是 client 端；真正的 client 端是用戶。
 
 ## Websocket Channel Server
 

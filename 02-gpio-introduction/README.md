@@ -8,7 +8,7 @@
 
 1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 LED 燈。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
 
-2. 使用面包板進行實驗。
+2. 使用麵包板進行實驗。
 
 3. 將 GPIO p21 定義為輸出：
 
@@ -61,9 +61,9 @@ DigitalOut myled(p21);
 
 ## 實習：以 DigitalOut 控制 LED 
 
-![圖 2.8：將 LPC 1768 開發版 插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
+![圖 2.8：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
 
-圖 2.8：將 LPC 1768 開發版 插上麵包板
+圖 2.8：將 LPC 1768 開發版插上麵包板
 
 ![圖 2.9：紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極](http://i.imgur.com/LT0xdWQ.jpg)
 
@@ -74,6 +74,10 @@ DigitalOut myled(p21);
 圖 2.10：LED 針腳長端插上 PwmOut 21~26 任意一個針腳，針腳短端插上麵包板正極
 
 4. 撰寫程式碼
+
+撰寫第一個 ARM mbed 程式碼。首先，必須引入 *mbed.h* 標頭檔，接著將連接 LED 的 GPIO Pin 腳定義為數位輸出。ARM mbed 提供一個 *wait()* API，用來暫停程式碼的執行，可利用此 API 練習撰寫「LED 閃爍」程式。
+
+程式碼如下：
 
 ```
 #include "mbed.h"
@@ -99,14 +103,16 @@ int main() {
 https://developer.mbed.org/users/mbedschool/code/ch2_mbed_led_control/
 ```
 
+可在 mbed 的 online workspace 尋找 *mbedschool* 帳號，即可找到本書的所有範例。
+
 ![圖 2.11：測試成功](http://i.imgur.com/GV3hZjz.jpg)
 
 圖 2.11：測試成功
 
 ## 延伸練習
 
+動手做勞作，發揮想像力，即使只是簡單的 LED 閃爍程式，也能做出有趣的小東西。
+
 ![圖 2.12：LED 瓢蟲](http://i.imgur.com/zo38TF0.jpg)
 
 圖 2.12：LED 瓢蟲
-
-試著做看看吧！

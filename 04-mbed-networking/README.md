@@ -1,21 +1,16 @@
 # 第 4 章：ARM mbed 網路組態
 
-## 準備工作
-
-在 IoT 的技發發展藍圖裡，描述了 IoT 的 4 個發展階段，其中第 4 個階段就是 WoT。而目前正好處於第 4 個 IoT 發展階段。Google 在 2014 年底發起的 Physical Web 計畫，是一個非常先期的研究計畫，就是為了 IoT 的新階段預做準備 [1]。
-
-IoT 的第 4 個階段，將聚焦在 Advanced Sensor Fusion 與 Physical-World Web 層面，這二個層面簡單來說，就是 WoT。根據維期百科上的定義，WoT 是 IoT 的 Application Layer，並且是使用 Web 技術來打造 application。也就是說，IoT + Web-enabled technologies 就是 WoT。
-
 對 WoT 來說，最重要的觀念，就是以 URL 來表示 IoT 裝置；為 IoT 加入 URL 的觀念，就是 Google 提出的 Physical Web 計畫。所以說，WoT 與 Physical Web 是一體兩面的觀念，都是 IoT 正進入的新發展階段。
 
-目前有許多 ARM mbed 的開發板，這些開發板並不是「另一個 Arduino」硬體，而是更能符合 WoT 理念的 RESTful device。同樣的硬體，不同的觀念、技術框架與商業思維，能帶來不同的產品思維與商業模式。所以，ARM mbed 與 WoT 帶來的，將是一場新的革命與機會。
+本章將開始介紹 ARM mbed 的網路功能。
 
-從第 5 章開始，mbed Taiwan 將開始帶給大家不一樣的 IoT 技術視野。
+## 準備工作
 
-[1]: http://www.jollen.org/blog/2015/01/arm-mbed-1-physical-web.html
+LPC1768 本身沒有 PHY 功能，因此必須使用 mbed shield 子板，將 LPC1786 加上 ethernet 功能；也可以改用 Seeed Studio 設計與生產的 Arch Pro 開發板。
 
 ## 使用 DHCP 取得 IP 位址
 
+使用 DHCP 進行網路組態。
 
 ```
 #include "mbed.h"

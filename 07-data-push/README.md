@@ -43,6 +43,34 @@ http://sockets.mbed.org
 * Websocket channel server 服務，本書將使用 *sockets.mbed.org*
 * ARM mbed 的 Websocket client 實作
 
+## Websocket Client 實作
 
+```
+#include "mbed.h"
+#include "EthernetInterface.h"
+#include "Websocket.h"
 
+int main() {
+    char recv[1024];
+ 
+    EthernetInterface eth;
+    //eth.init(); // Use DHCP
+    eth.init("192.168.21.33", "255.255.255.0", "192.168.21.2"); // Use static ip
+    eth.connect();
+    printf("IP Address is %s\n\r", eth.getIPAddress());
+ 
+    Websocket ws("ws://sockets.mbed.org/ws/james/viewer");
+
+    ws.connect();
+ 
+    while (1) {
+        wait(1.0);
+        ws.send("WebSocket Hello World over Ethernet");
+        wait(1.0);
+    }
+}
+```
+
+![圖 7.1：程式碼範例](7.1_websocket_client.png)
+圖 7.1：Websocket client 程式碼
 

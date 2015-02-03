@@ -59,7 +59,7 @@ int main() {
     eth.connect();
     printf("IP Address is %s\n\r", eth.getIPAddress());
  
-    Websocket ws("ws://sockets.mbed.org/ws/james/viewer");
+    Websocket ws("ws://sockets.mbed.org/ws/mbedschool/viewer");
 
     ws.connect();
  

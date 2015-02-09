@@ -1,5 +1,16 @@
 # 第 5 章：DIY 空氣品質偵測器
 
+目前為止，已經具備以下的背景知識：
+
+* ARM mbed 與 LPC1768 入門，基本 GPIO 控制
+* ARM mbed 的 Network API，讓 LPC1768 上網
+
+接著，就是 ARM mbed 的重點戲了：REST API。
+
+要讓 ARM mbed 裝置具備 REST API 能力，最重要的就是練習撰寫 HTTPD 功能。ARM mbed 提供 HTTPD 程式庫，能在裝置上生成一個輕量級的 Web Server。
+
+本章將介紹 HTTPD 的使用，並將 Dust Sensor 的即時數據封裝為 REST API。用戶可透過瀏覽器，即時取得 Dust Sensor 的數值。Dust Sensor 是空氣微粒的感測器，並不包含在 Grove Starter Kit for mbed 套件裡，需額外取得。
+
 ## 準備工作
 
 ### LPC1768 的 GPIO Pinout

@@ -103,3 +103,16 @@ int main() {
 ```
 http://developer.mbed.org/users/mbedschool/code/mbed_led_run/
 ```
+
+## 關於 mbed 作業系統
+
+ARM mbed 是一個 full stack 作業系統，底層是一個 RTOS 作業系統核心。mbed RTOS 本身提供以下機制：
+
+* Thread
+* Mutex
+* Semaphore
+* Message Queue
+* Mail
+* Memory Poll
+
+Mokoversity 農場計畫團隊，正在進行「國民飛行器」計畫。與 RTOS 有關的技術，將在「國民飛行器」計畫的分享課程裡說明。

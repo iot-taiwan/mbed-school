@@ -16,56 +16,40 @@
 
 ### Grove - Rotary Angle Sensor 
 
-簡介
-
 旋轉角度感測器模組提供類比輸出介於 0 - Vcc，可偵測角度為 0 - 300 度。
 
 ### Grove - Temperature Sensor
-
-簡介
 
 溫度感測器模組使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。
 感測器可偵測的範圍是 -40ºC - 125ºC，誤差為 ±1.5ºC。
 
 ### Grove - Light Sensor
 
-簡介
-
 光源感測器模組包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
 
 ### Grove - Infrared Emitter
-
-簡介
 
 紅外線發射器模組，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。
 
 ### Grove - Infrared Receiver
 
-簡介
-
 紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
 ### Grove - Chainable RGB LED
-
-簡介
 
 全彩可變色 LED 模組，可透過程式改變 LED 顏色。
 
 ### Grove - 3-Axis Digital Accelerometer
 
-簡介
-
 數位三軸加速器模組，通常使用在需要偵測方向、手勢、動作的應用，能準確地反映物體的運動性質。
 
 ### 4 Digit Display
-
-簡介
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。
 
 ## ARM mbed PIN 腳名稱定義
 
-ARM mbed 具體的 PIN 腳名稱，如第一章用的 LED1、LED2、LED3、LED4 是在那裡定義的呢？ ARM mbed 的 PIN 腳定義放在 PinNames.h，定義如下：
+ARM mbed 具體的 PIN 腳名稱，如第一章用的 LED1、LED2、LED3、LED4 是在那裡定義的呢？ ARM mbed 的 PIN 腳定義放在 *PinNames.h*，內容如下：
 
 ```
 typedef enum {
@@ -155,8 +139,9 @@ typedef enum {
 
 ## ARM mbed API 說明
 
-我們在前面二章範例 LED 燈的點亮使用了 ARM mbed 的 DigitalOut 的 API 功能
-在 LPC768 的開發版上，DigitalOut 可使用在 LPC1768 開發版 PIN 腳說明上所有藍色標籤的 PIN 腳 （p5-p30），DigitalOut 的值 0 為 off，1 為 on，API 使用說明如下：
+我們在前面二章 LED 的範例使用了 ARM mbed 的 *DigitalOut* API。在 LPC1768 開發版上，*DigitalOut* 可控制 P5-P30 PIN 腳。在 LPC1768 開發版的 PIN 腳說明卡上，P5-P30 就是藍色標籤的 PIN 腳。
+
+當 *DigitalOut* 的傳入值為 0 時，表示設定 PIN 腳為 off；反之，1 為 on。GPIO 有關的 API 整理如下：
 
 * DigitalOut(PinName pin) 宣告 DistigalOut 的 PIN 腳的連結
 

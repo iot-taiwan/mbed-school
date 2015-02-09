@@ -51,15 +51,21 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃�
 
 LPC1786 開發板有大量的 GPIO，可與各種 sensor device 結合，並透過演算法的實作，發展各式應用。
 
-ARM mbed 的本身更具備 networking feature（例如：3G、ethernet），因此不再只是扮演被動傳送資料的角色，而是透過 Websocket 建立連線，以 REST API 主動提供 client side 取得資料。
+## 本書架構
 
-所以 LPC1768 不應被當成 GPIO device，而是一種 REST device。
+ARM mbed 作業系統本身具備 networking feature（例如：3G、ethernet），因此不再只是扮演傳統 GPIO 控制，或是藍芽傳輸的角色；它可以透過 Websocket 連線，將 sensor data 推送（data push）給伺服器。ARM mbed 作業系統也提供 httpd library，能在 ARM mbed 裝置上發展 REST API，並透過 HTTP 讓 client 端呼叫。
+
+基於 ARM mbed 作業系統的 LPC1768 開發板，如果只當做 GPIO 控制器來使用，就太可惜了。將 LPC1786 視為 physical object，才是 ARM mbed 作業系統的潛力所在。Physical object 就是 REST device 的觀念。
+
+因此，本書的規劃，將列入 REST device 的主題。整體內容架構如圖 1.4。
 
 ![圖 1.4：本書架構](http://i.imgur.com/xWO0DEd.jpg)
 
 圖 1.4：本書架構
 
 ## 實習：跑馬燈
+
+學會使用 mbed 的 online compiler 後，可以從基本的 GPIO 控制開始學習。這是一個控制 LPC1786 LED 燈的範例，請練習編譯並測卜本範例。
 
 ```
 #include "mbed.h"
@@ -90,7 +96,7 @@ int main() {
 }
 ```
 
-本範例程式下載網址：
+範例程式下載網址：
 
 ```
 http://developer.mbed.org/users/mbedschool/code/mbed_led_run/

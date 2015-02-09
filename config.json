@@ -32,6 +32,11 @@
 		"chapter": "第 6 章：ARM mbed 中斷處理",
 		"folder": "06-mbed-interrupt",
 		"desc": "學習 Interrupt Handling",
+		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter6-holder.jpg"
+	}, {
+		"chapter": "第 7 章：IoT 物件與 Websocket 技術",
+		"folder": "07-data-push",
+		"desc": "使用 Websocket channel server 封裝 IoT objects",
 		"holder": "http://lorempixel.com/350/235/"
 	}]
 }

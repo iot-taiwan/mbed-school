@@ -1,4 +1,4 @@
-# 第 6 章：ARM mbed 的中斷應用
+# 第 6 章：ARM mbed 中斷處理
 
 本章節針對上一章節涵蓋的技術作進一步的解說。上一章節我們定義一個 REST API，讓 Client side（此為 Browser）以 HTTP GET request 的方式取得 Server side（此為 Dust sensor）感測到的數值。這種把裝置視為網路上的某項資源，然後透過 URL 存取該資源的形式，正是第 4 章所提到的 WoT（Physical Web）觀念的初步實作。
 

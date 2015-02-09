@@ -1,4 +1,4 @@
-# 第 3 章：常用模組及 API 介紹
+# 第 3 章：Sensor 模組與 GPIO API
 
 第 3 章開始，將使用一些常見的 sensor 模組，來實做一些 IoT 的概念。以下先總覽幾個常用的 sensor 模組。所有模組皆可在 Grove Starter Kit for mbed 套件裡取得。
 

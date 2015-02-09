@@ -14,7 +14,7 @@
 		"desc": "使用 LPC1768 的 GPIO 自造簡單小物",
 		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter2-holder.jpg"
 	}, {
-		"chapter": "第 3 章：常用模組及 API 介紹",
+		"chapter": "第 3 章：Sensor 模組與 GPIO API",
 		"folder": "03-modules-and-api-introduction",
 		"desc": "認識常用 Sensor，以及 LPC1786 腳位",
 		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter3-holder.jpg"
@@ -22,6 +22,16 @@
 		"chapter": "第 4 章：ARM mbed 網路組態",
 		"folder": "04-mbed-networking",
 		"desc": "讓 ARM mbed 連上 Internet",
+		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter4-holder.jpg"
+	}, {
+		"chapter": "第 5 章：DIY 空氣品質偵測器",
+		"folder": "05-dust-sensor",
+		"desc": "Dust Sensor 是空氣微粒的感測器",
+		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter5-holder.jpg"
+	}, {
+		"chapter": "第 6 章：ARM mbed 中斷處理",
+		"folder": "06-mbed-interrupt",
+		"desc": "學習 Interrupt Handling",
 		"holder": "http://lorempixel.com/350/235/"
 	}]
 }

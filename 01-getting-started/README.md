@@ -104,6 +104,8 @@ int main() {
 http://developer.mbed.org/users/mbedschool/code/mbed_led_run/
 ```
 
+請練習使用 online compiler 的匯入功能，將本範例匯入使用。
+
 ## 關於 mbed 作業系統
 
 ARM mbed 是一個 full stack 作業系統，底層是一個 RTOS 作業系統核心。mbed RTOS 本身提供以下機制：

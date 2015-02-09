@@ -2,6 +2,7 @@
 	"author": "mbed Taiwan",
 	"url": "http://mbed.tw",
 	"title": "ARM mbed 物聯網學堂",
+	"about": "「ARM mbed 物聯網學堂」教材由 mbed Taiwan 團隊製作。不漏接 IoT 商機與 ARM mbed 訊息，緊盯 http://mbed.tw",
 	"index": [{
 		"chapter": "第 1 章：ARM mbed 起步走",
 		"folder": "01-getting-started",
@@ -16,7 +17,7 @@
 		"chapter": "第 3 章：常用模組及 API 介紹",
 		"folder": "03-modules-and-api-introduction",
 		"desc": "認識常用 Sensor，以及 LPC1786 腳位",
-		"holder": "http://lorempixel.com/350/235/"
+		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter3-holder.jpg"
 	}, {
 		"chapter": "第 4 章：ARM mbed 網路組態",
 		"folder": "04-mbed-networking",

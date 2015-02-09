@@ -2,7 +2,7 @@
 
 第 3 章開始，將使用一些常見的 sensor 模組，來實做一些 IoT 的概念。以下先總覽幾個常用的 sensor 模組。所有模組皆可在 Grove Starter Kit for mbed 套件裡取得。
 
-![圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed](1.3_grove.jpg)
+![圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed](1.3_grove-kit.jpg)
 圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed
 
 ### Grove - Button

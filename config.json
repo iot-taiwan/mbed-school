@@ -1,0 +1,21 @@
+{
+	"author": "mbed Taiwan",
+	"url": "http://mbed.tw",
+	"title": "ARM mbed 物聯網學堂",
+	"index": [{
+		"chapter": "第 1 章：ARM mbed 起步走",
+		"folder": "01-getting-started",
+		"desc": "學會使用 online compiler 並撰寫 Hello, World",
+		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter1-holder.jpg"
+	}, {
+		"chapter": "第 2 章：學習 ARM mbed GPIO 控制",
+		"folder": "02-gpio-introduction",
+		"desc": "使用 LPC1768 的 GPIO 自造簡單小物",
+		"holder": "http://lorempixel.com/350/235/"
+	}, {
+		"chapter": "第 3 章：常用模組及 API 介紹",
+		"folder": "03-modules-and-api-introduction",
+		"desc": "認識常用 Sensor，以及 LPC1786 腳位",
+		"holder": "http://lorempixel.com/350/235/"
+	}]
+}

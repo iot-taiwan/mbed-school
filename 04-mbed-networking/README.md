@@ -72,7 +72,7 @@ int main() {
 
 ## 使用 Static IP 位址
 
-先匯入 ARM mbed 提供 EthernetInterface Library 後， 引入 *EthernetInterface.h* 標頭檔，即可設定 Static IP 位址。
+先匯入 ARM mbed 提供的 EthernetInterface Library 後， 引入 *EthernetInterface.h* 標頭檔，即可設定 Static IP 位址。
 ```
 #include "mbed.h"
 #include "EthernetInterface.h"

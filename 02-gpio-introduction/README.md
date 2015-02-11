@@ -136,6 +136,7 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 ### 電子零件介紹
 
+接下我們將做簡單的 LED 通電測試與撰寫第一個 ARM mbed 程式碼：「LED 閃爍」程式
 準備材料如下：
 
 1. ARM mbed LPC 1768 開發版

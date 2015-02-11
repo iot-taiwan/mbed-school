@@ -232,7 +232,9 @@ Port 3 簡介：
 
 ## Lightweight Web Server
 
-1. 撰寫程式碼
+1. 匯入 EthernetInterface Library ，引入 *EthernetInterface.h* 標頭檔，來設定網路組態
+2. 匯入 httpd Library ，引入 *HTTPD.h* 標頭檔，來實做Http Web Server
+3. 撰寫程式碼
 
 ```
 #include "mbed.h"

@@ -145,7 +145,7 @@ typedef enum {
 
 我們在前面二章 LED 的範例使用了 ARM mbed 的 *DigitalOut* API。在 LPC1768 開發版上，*DigitalOut* 可控制 P5-P30 PIN 腳。在 LPC1768 開發版的 PIN 腳說明卡上，P5-P30 就是藍色標籤的 PIN 腳。
 
-當 *DigitalOut* 的傳入值為 0 時，表示設定 PIN 腳為 off；反之，1 為 on。GPIO 有關的 API 整理如下：
+當 *DigitalOut* 的傳入值為 0 時，表示設定 PIN 腳為 off；反之，傳入值為 1 時為 on。GPIO 有關的 API 整理如下：
 
 * DigitalOut(PinName pin) 宣告 DistigalOut 的 PIN 腳的連結
 

@@ -68,9 +68,10 @@ DigitalOut myled(p21);
 圖 2.7：LED 點亮，測試成功
 
 ## 實習：以 DigitalOut 控制 LED 
-接下來我們來試做第一個 GPIO 控制，以 ARM mbed 的 DigitalOut 控制 PIN 腳輸出高電平或者低電平來控制 LED 。
+接下來我們開始進行第一個 GPIO 控制，以 ARM mbed 的 DigitalOut 控制 PIN 腳輸出高電平或者低電平來控制 LED。
 
 依照以下步驟來以 DigitalOut 控制 LED：
+
 1. 將 LPC1768 開發版插上麵包板
 2. 紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
 3. LED 針腳長端插上 PwmOut 21~26 任意一個針腳，針腳短端插上麵包板正極

@@ -206,7 +206,7 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 ### 撰寫程式碼
 
-撰寫第一個 ARM mbed 程式碼。首先，必須引入 *mbed.h* 標頭檔，接著將連接 LED 的 GPIO Pin 腳定義為數位輸出。ARM mbed 提供一個 *wait()* API，用來暫停程式碼的執行，可利用此 API 練習撰寫「LED 閃爍」程式。
+撰寫第一個 ARM mbed 程式碼：「LED 閃爍」程式。首先，必須引入 *mbed.h* 標頭檔，接著將連接 LED 的 GPIO Pin 腳定義為數位輸出。ARM mbed 提供一個 *wait()* API，用來暫停程式碼的執行，可利用此 API 練習撰寫「LED 閃爍」程式。
 
 程式碼如下：
 

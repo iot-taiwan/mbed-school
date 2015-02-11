@@ -71,6 +71,6 @@ int main() {
 }
 ```
 
-![圖 7.1：程式碼範例](7.1_websocket_client.png)
+![圖 7.1：程式碼範例](http://i.imgur.com/RGTk67m.png)
 圖 7.1：Websocket client 程式碼
 

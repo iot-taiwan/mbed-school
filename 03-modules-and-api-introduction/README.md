@@ -54,7 +54,7 @@
 
 # 實作：溫度感測器搭配四位數顯示器
 
-實作簡易環境溫度感測器並將即時監控的溫度顯示在 LED 顯示器上。
+實作簡易環境溫度感測器並將即時監控的溫度顯示在 LED 數字顯示器上。
 
 ## 電子零件介紹
 
@@ -78,7 +78,7 @@
 圖2：溫度感測器組裝完成圖
 
 ## 撰寫程式碼
-
+匯入 DigitDisplay  Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器
 ```
 #include "mbed.h"
 #include "DigitDisplay.h"
@@ -111,9 +111,9 @@ int main()
 ```
 ## 即時溫度監控顯示畫面 
 
-由程式碼定義 Arch Pro 的第二顆 Led 紅燈閃爍來簡易判斷是否有正常執行運作。
-![圖3：溫度監控即時顯示LED實作](http://i.imgur.com/AKgq0Qf.jpg)
-圖3：溫度監控即時顯示LED實作
+由程式碼定義 Arch Pro 的第二顆 LED 紅燈閃爍來簡易判斷是否有正常執行運作。
+![圖3：溫度監控即時顯示 LED 實作](http://i.imgur.com/AKgq0Qf.jpg)
+圖3：溫度監控即時顯示 LED 實作
 
 ## 參考資源
 * http://developer.mbed.org/users/djbottrill/code/Grove_Thermometer/

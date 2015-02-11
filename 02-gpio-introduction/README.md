@@ -33,7 +33,7 @@ DigitalOut myled(p21);
 圖 2.1：本章節使用的零件
 
 ## LED 通電測試
-我們先簡單的以 LED 來做通電測試，使用 LPC1768 開發版的 3.3 Regulated Out (VOUT) 的電源來讓 LED 通電。
+我們先簡單的以 LED 來做通電測試，使用 LPC1768 開發版的 3.3 Regulated Out (VOUT) 正極、 GND 負極的電源來讓 LED 通電。
 
 依照以下步驟進行 LED 通電測試：
 
@@ -74,7 +74,7 @@ DigitalOut myled(p21);
 
 1. 將 LPC1768 開發版插上麵包板
 2. 紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
-3. LED 針腳長端插上 PwmOut 21~26 任意一個針腳，針腳短端插上麵包板正極
+3. LED 針腳長端插上 p21~p26 任意一個針腳，針腳短端插上麵包板正極
 
 ![圖 2.8：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
 
@@ -84,9 +84,9 @@ DigitalOut myled(p21);
 
 圖 2.9：紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
 
-![圖 2.10：LED 針腳長端插上 PwmOut 21~26 任意一個針腳，針腳短端插上麵包板正極](http://i.imgur.com/99qiOYr.jpg)
+![圖 2.10：LED 針腳長端插上 p21~p26 任意一個針腳，針腳短端插上麵包板正極](http://i.imgur.com/99qiOYr.jpg)
 
-圖 2.10：LED 針腳長端插上 PwmOut 21~26 任意一個針腳，針腳短端插上麵包板正極
+圖 2.10：LED 針腳長端插上 p21~p26 任意一個針腳，針腳短端插上麵包板正極
 
 4. 撰寫程式碼
 

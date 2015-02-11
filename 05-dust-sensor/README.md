@@ -233,7 +233,7 @@ Port 3 簡介：
 ## Lightweight Web Server
 
 1. 匯入 EthernetInterface Library ，引入 *EthernetInterface.h* 標頭檔，來設定網路組態
-2. 匯入 httpd Library ，引入 *HTTPD.h* 標頭檔，來實做Http Web Server
+2. 匯入 HTTPD Library ，引入 *HTTPD.h* 標頭檔，來實做Http Web Server
 3. 撰寫程式碼
 
 ```
@@ -332,7 +332,7 @@ int main() {
 
 本章所設計的空氣品質偵測器，將以 REST API 方式提供 sensor data。基本觀念：
 
-1. 需移植一個 httpd 至 LPC1786
+1. 需移植一個 httpd 至 LPC1768
 2. 需要製作一個 frontend
 3. Frontend 以 data pull 方式調用空氣品質偵測器的 REST API
 4. 當 REST API 被調用時，再即時讀取空氣指數，並以 JSON 格式返回數據
@@ -347,7 +347,7 @@ int main() {
 REST API 定義：
 
 ```
-GET /1/mbed/lpc1786/sensor/dust/sen12291p
+GET /1/mbed/lpc1768/sensor/dust/sen12291p
 ```
 
 JSON 回傳資料格式：

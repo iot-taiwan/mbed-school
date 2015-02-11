@@ -1,4 +1,4 @@
-# 第 3 章：Sensor 模組與 GPIO API
+# 第 3 章：Sensor 模組
 
 第 3 章開始，將使用一些常見的 sensor 模組，來實做一些 IoT 的概念。以下先總覽幾個常用的 sensor 模組。所有模組皆可在 Grove Starter Kit for mbed 套件裡取得。
 
@@ -51,118 +51,69 @@
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。
 
-## ARM mbed PIN 腳名稱定義
 
-ARM mbed 具體的 PIN 腳名稱，如第一章用的 LED1、LED2、LED3、LED4 是在那裡定義的呢？ ARM mbed 的 PIN 腳定義放在 *PinNames.h*，內容如下：
+# 實作：溫度感測器搭配四位數顯示器
 
-```
-typedef enum {
-    // LPC Pin Names
-    P0_0 = LPC_GPIO0_BASE,
-          P0_1, P0_2, P0_3, P0_4, P0_5, P0_6, P0_7, P0_8, P0_9, P0_10, P0_11, P0_12, P0_13, P0_14, P0_15, P0_16, P0_17, P0_18, P0_19, P0_20, P0_21, P0_22, P0_23, P0_24, P0_25, P0_26, P0_27, P0_28, P0_29, P0_30, P0_31,
-    P1_0, P1_1, P1_2, P1_3, P1_4, P1_5, P1_6, P1_7, P1_8, P1_9, P1_10, P1_11, P1_12, P1_13, P1_14, P1_15, P1_16, P1_17, P1_18, P1_19, P1_20, P1_21, P1_22, P1_23, P1_24, P1_25, P1_26, P1_27, P1_28, P1_29, P1_30, P1_31,
-    P2_0, P2_1, P2_2, P2_3, P2_4, P2_5, P2_6, P2_7, P2_8, P2_9, P2_10, P2_11, P2_12, P2_13, P2_14, P2_15, P2_16, P2_17, P2_18, P2_19, P2_20, P2_21, P2_22, P2_23, P2_24, P2_25, P2_26, P2_27, P2_28, P2_29, P2_30, P2_31,
-    P3_0, P3_1, P3_2, P3_3, P3_4, P3_5, P3_6, P3_7, P3_8, P3_9, P3_10, P3_11, P3_12, P3_13, P3_14, P3_15, P3_16, P3_17, P3_18, P3_19, P3_20, P3_21, P3_22, P3_23, P3_24, P3_25, P3_26, P3_27, P3_28, P3_29, P3_30, P3_31,
-    P4_0, P4_1, P4_2, P4_3, P4_4, P4_5, P4_6, P4_7, P4_8, P4_9, P4_10, P4_11, P4_12, P4_13, P4_14, P4_15, P4_16, P4_17, P4_18, P4_19, P4_20, P4_21, P4_22, P4_23, P4_24, P4_25, P4_26, P4_27, P4_28, P4_29, P4_30, P4_31,
- 
-    // mbed DIP Pin Names
-    p5 = P0_9,
-    p6 = P0_8,
-    p7 = P0_7,
-    p8 = P0_6,
-    p9 = P0_0,
-    p10 = P0_1,
-    p11 = P0_18,
-    p12 = P0_17,
-    p13 = P0_15,
-    p14 = P0_16,
-    p15 = P0_23,
-    p16 = P0_24,
-    p17 = P0_25,
-    p18 = P0_26,
-    p19 = P1_30,
-    p20 = P1_31,
-    p21 = P2_5,
-    p22 = P2_4,
-    p23 = P2_3,
-    p24 = P2_2,
-    p25 = P2_1,
-    p26 = P2_0,
-    p27 = P0_11,
-    p28 = P0_10,
-    p29 = P0_5,
-    p30 = P0_4,
- 
-    // Other mbed Pin Names
-#ifdef MCB1700
-    LED1 = P1_28,
-    LED2 = P1_29,
-    LED3 = P1_31,
-    LED4 = P2_2,
-#else
-    LED1 = P1_18,
-    LED2 = P1_20,
-    LED3 = P1_21,
-    LED4 = P1_23,
-#endif
-    USBTX = P0_2,
-    USBRX = P0_3,
- 
-    // Arch Pro Pin Names
-    D0 = P4_29,
-    D1 = P4_28,
-    D2 = P0_4,
-    D3 = P0_5,
-    D4 = P2_2,
-    D5 = P2_3,
-    D6 = P2_4,
-    D7 = P2_5,
-    D8 = P0_0,
-    D9 = P0_1,
-    D10 = P0_6,
-    D11 = P0_9,
-    D12 = P0_8,
-    D13 = P0_7,
-    D14 = P0_27,
-    D15 = P0_28,
- 
-    A0 = P0_23,
-    A1 = P0_24,
-    A2 = P0_25,
-    A3 = P0_26,
-    A4 = P1_30,
-    A5 = P1_31,
- 
-    I2C_SCL = D15,
-    I2C_SDA = D14,
- 
-    // Not connected
-    NC = (int)0xFFFFFFFF
-} PinName;
-```
+實作簡易環境溫度感測器並將即時監控的溫度顯示在 LED 顯示器上。
 
-## ARM mbed API 說明
+## 電子零件介紹
 
-我們在前面二章 LED 的範例使用了 ARM mbed 的 *DigitalOut* API。在 LPC1768 開發版上，*DigitalOut* 可控制 P5-P30 PIN 腳。在 LPC1768 開發版的 PIN 腳說明卡上，P5-P30 就是藍色標籤的 PIN 腳。
+* Arch Pro 開發板 
+* Base Shield 
+* Grove Temperature 
+* Grove 4-Digit-Display 
+* Grove - Universal 4 Pin 20cm Unbuckled Cable
 
-當 *DigitalOut* 的傳入值為 0 時，表示設定 PIN 腳為 off；反之，傳入值為 1 時為 on。GPIO 有關的 API 整理如下：
+![圖1：溫度感測器實作採用零件 ](http://i.imgur.com/kxaUJKu.jpg)
+圖1：溫度感測器實作採用零件
 
-* DigitalOut(PinName pin) 宣告 DistigalOut 的 PIN 腳的連結
+## 溫度感測器實作步驟
 
-* void write(int value) 設定 PIN 腳值
+* 將 Base Shield 接在 Arch Pro 上 
+* 溫度感測器接 Universal 4 pin Cable 線，並接在 Base Shield 的 A0 
+* 將四位數 LED 顯示器接 Universal 4 pin Cable 線，並接在 Base Shield 的 UART
+* 記得將 Base Shield 切換至 5V VCC 
 
-* int read() 讀取 PIN 腳值
+![圖2：完成圖](http://i.imgur.com/uhJPzho.jpg)
+圖2：溫度感測器組裝完成圖
 
-* DigitalOut& operator = (int value) 設定 PIN 腳的值
-
-* DigitalOut& operator = (DigitalOut& rhs) 設定 PIN 腳的值為另一個 PIN 腳
-
-* operator int() 讀取 PIN 腳的簡易寫法
-
-範例：
+## 撰寫程式碼
 
 ```
-DigtialOut  myled(LED1); 
-myled = 1;  // 也可以寫成 myled.write(1);
+#include "mbed.h"
+#include "DigitDisplay.h"
+
+DigitalOut myled(LED2);
+
+DigitDisplay display(P4_29, P4_28);
+AnalogIn ain(P0_23);
+
+int a;
+float temperature;
+int B=3975;                                                         //B value of the thermistor
+float resistance;
+
+int main()
+{
+    while(1) {
+// multiply ain by 675 if the Grove shield is set to 5V or 1023 if set to 3.3V
+        a=ain*675;
+        resistance=(float)(1023-a)*10000/a;                         //get the resistance of the sensor;
+        temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;    //convert to temperature via datasheet ;
+        myled = 1;
+        wait(0.8);
+        myled = 0;
+        wait(0.8);
+        display.write(temperature);
+    }
+}
+
 ```
- 
+## 即時溫度監控顯示畫面 
+
+由程式碼定義 Arch Pro 的第二顆 Led 紅燈閃爍來簡易判斷是否有正常執行運作。
+![圖3：溫度監控即時顯示LED實作](http://i.imgur.com/AKgq0Qf.jpg)
+圖3：溫度監控即時顯示LED實作
+
+## 參考資源
+* http://developer.mbed.org/users/djbottrill/code/Grove_Thermometer/

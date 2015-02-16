@@ -150,11 +150,40 @@ int main()
 
 紅外線發射器模組，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。
 
+範例：
+
+使用 Button 控制 Infrared Emitter ，按鈕被按壓後發射紅外線 { 0x80, 0x00 } 訊號，將 RemoteIR Library 匯入後，引入 *DigitDisplay.h* 標頭檔，來實做發射紅外線訊號。
+
+```
+
+#include "mbed.h"
+#include "TransmitterIR.h"
+TransmitterIR ir_tx(p21);
+DigitalIn button(p22);
+
+RemoteIR::Format format = RemoteIR::SONY;
+uint8_t buf[] = { 0x80, 0x00 };
+int bitcount = 12;
+int main() {
+    while(1){
+        if (button){
+            if (ir_tx.getState() == TransmitterIR::Idle) {
+                bitcount = ir_tx.setData(format, buf, bitcount);
+            }
+        }
+       
+        wait(0.2); // 
+        
+    }
+}
+```
+
 ### Grove - Infrared Receiver
 
 紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
 範例：
+
 使用 RemoteIR Library，引入 *DigitDisplay.h* 標頭檔，來實做紅外線接收信號。
 ```
 

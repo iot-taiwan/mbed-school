@@ -12,6 +12,15 @@
 
 按鈕模組包含一顆獨立的「瞬間開/關」按鈕。「瞬間」是意思是，當按鈕被按壓後，按鈕會立刻主動反彈。按下按鈕時，按鈕模組會使 GPIO 腳位得到一個 High 信號，反彈時則輸出 LOW 信號。
 
+腳位接法
+
+| sensor pin | mbed pin         |
+| ---------- | ---------------- |
+| 1 - SIG    | P21 - DigitalIn  |
+| 2 - NC     | 不用接           |
+| 3 - Vcc    | Vout - 3.3V      |
+| 4 - GND    | GND              |
+
 範例：
 
 使用 Button 控制 LED ，按鈕被按壓後 LED 亮，反彈時則 LED 不亮。
@@ -42,6 +51,15 @@ int main()
 
 亦可將蜂鳴器連接到類比輸出，此時可讓蜂鳴器產生各種音效。
 
+腳位接法
+
+| sensor pin | mbed pin         |
+| ---------- | ---------------- |
+| 1 - SIG    | P21 - DigitalOut |
+| 2 - NC     | 不用接           |
+| 3 - Vcc    | Vout - 3.3V      |
+| 4 - GND    | GND              |
+
 範例：
 
 使用 Button 控制蜂鳴器，按鈕被按壓後蜂鳴器發出聲響，反彈時則蜂鳴器無發出聲響。
@@ -71,11 +89,20 @@ int main()
 
 旋轉角度感測器模組提供類比輸出介於 0 - Vcc，可偵測角度為 0 - 300 度。
 
+腳位接法
+
+| sensor pin | mbed pin       |
+| ---------- | -------------- |
+| 1 - SIG    | P15 - AnalogIn |
+| 2 - NC     | 不用接         |
+| 3 - Vcc    | Vout - 3.3V    |
+| 4 - GND    | GND            |
+
 範例：
 
 使用 AnalogIn API 讀取旋轉角度。
 ```
-AnalogIn RotaryAngle(A3);
+AnalogIn RotaryAngle(p15);
 
 int main()
 {
@@ -88,6 +115,15 @@ int main()
 
 溫度感測器模組使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。
 感測器可偵測的範圍是 -40ºC - 125ºC，誤差為 ±1.5ºC。
+
+腳位接法
+
+| sensor pin | mbed pin       |
+| ---------- | -------------- |
+| 1 - SIG    | P15 - AnalogIn |
+| 2 - NC     | 不用接         |
+| 3 - Vcc    | Vout - 3.3V    |
+| 4 - GND    | GND            |
 
 範例：
 
@@ -122,6 +158,15 @@ int main()
 
 光源感測器模組包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
 
+腳位接法
+
+| sensor pin | mbed pin        |
+| ---------- | --------------- |
+| 1 - SIG    | P21 - DigitalIn |
+| 2 - NC     | 不用接          |
+| 3 - Vcc    | Vout - 3.3V     |
+| 4 - GND    | GND             |
+
 範例：
 
 使用 Light Sensor 控制 LED ，光亮時 LED 不亮，無光亮時則 LED 亮。
@@ -150,15 +195,24 @@ int main()
 
 紅外線發射器模組，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。
 
+腳位接法
+
+| sensor pin | mbed pin        |
+| ---------- | --------------- |
+| 1 - TX     | P15 - AnalogOut |
+| 2 - NC     | 不用接          |
+| 3 - Vcc    | Vout - 3.3V     |
+| 4 - GND    | GND             |
+
 範例：
 
-使用 Button 控制 Infrared Emitter ，按鈕被按壓後發射紅外線 { 0x80, 0x00 } 訊號，將 RemoteIR Library 匯入後，引入 *DigitDisplay.h* 標頭檔，來實做發射紅外線訊號。
+使用 Button 控制 Infrared Emitter ，按鈕被按壓後發射紅外線 { 0x80, 0x00 } 訊號，將 RemoteIR Library 匯入後，引入 *TransmitterIR.h* 標頭檔，來實做發射紅外線訊號。
 
 ```
 
 #include "mbed.h"
 #include "TransmitterIR.h"
-TransmitterIR ir_tx(p21);
+TransmitterIR ir_tx(p15);
 DigitalIn button(p22);
 
 RemoteIR::Format format = RemoteIR::SONY;
@@ -181,9 +235,18 @@ int main() {
 
 紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
+腳位接法
+
+| sensor pin | mbed pin        |
+| ---------- | --------------- |
+| 1 - RX     | P15 - AnalogIn  |
+| 2 - NC     | 不用接          |
+| 3 - Vcc    | Vout - 3.3V     |
+| 4 - GND    | GND             |
+
 範例：
 
-使用 RemoteIR Library，引入 *DigitDisplay.h* 標頭檔，來實做紅外線接收信號。
+使用 RemoteIR Library，引入 *ReceiverIR.h* 標頭檔，來實做紅外線接收信號。
 ```
 
 #include "mbed.h"
@@ -211,11 +274,18 @@ int main() {
 
 數位三軸加速器模組，通常使用在需要偵測方向、手勢、動作的應用，能準確地反映物體的運動性質。
 
-感測器本身會會回傳 0~63 的結果，我們可以透過此結果依表轉換成 G 值(1g=m/s^2)或者角度(不建議使用)，詳細對照表可參照[此文件](http://www.freescale.com.cn/files/sensors/doc/data_sheet/MMA7660FC.pdf?fpsp=1) P.26~P.27。
+感測器本身會會回傳 0~63 的結果，我們可以透過此結果依表轉換成 G 值(1g=m/s^2)或者角度(不建議使用)，詳細對照表可參照[此文件](http://www.freescale.com.cn/files/sensors/doc/data_sheet/MMA7660FC.pdf?fpsp=1) P.26~P.27。數據解析對照表如下：
 
 ![數據解析對照表](http://i.imgur.com/h6il6ET.png)
 
-數據解析對照表
+腳位接法
+
+| sensor pin | mbed pin   |
+| ---------- | ---------- |
+| 1 - SCL    | P27 - SCL  |
+| 2 - SDA    | P28 - SDA  |
+| 3 - Vcc    | Vout - 3.3V|
+| 4 - GND    | GND        |
 
 範例：
 
@@ -273,6 +343,15 @@ int main()
 ### 4 Digit Display
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。
+
+腳位接法
+
+| sensor pin | mbed pin   |
+| ---------- | ---------- |
+| 1 - DIO    | P27 - RX   |
+| 2 - CLK    | P28 - TX   |
+| 3 - Vcc    | Vout - 3.3V|
+| 4 - GND    | GND        |
 
 範例：
 使用 DigitDisplay Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器。

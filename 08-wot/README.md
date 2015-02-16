@@ -11,17 +11,19 @@ AutomationJS 是一個輕量級的 Composition Layer 實作，並且使用 Backb
 有了 AutomationJS 後，差不多就解決了 WoT 的一個關鍵技術問題。本章將實做完整 WoT 整合，整合內容如下：
 
 Block #1：Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
+
 Block #2：Websocket channel server
 ```
 https://www.mokoversity.com/wotcity
 ```
-Block #3 ：AutomationJS
+
+Block #3：AutomationJS
 Frontend
 Backbone with Virtual DOM
 
-##  Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
+## Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
 
-##  Websocket channel server
+## Websocket channel server
 
 ### WoT.City
 

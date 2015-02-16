@@ -15,7 +15,7 @@
 		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter2-holder.jpg"
 	}, {
 		"chapter": "第 3 章：Sensor 模組與 GPIO API",
-		"folder": "03-modules-and-api-introduction",
+		"folder": "03-modules",
 		"desc": "認識常用 Sensor，以及 LPC1786 腳位",
 		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter3-holder.jpg"
 	}, {

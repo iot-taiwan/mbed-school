@@ -140,7 +140,7 @@ int main()
         else
             myled = 1;   
 
-         wait(0.7); // simple debouncing      
+         wait(0.2);   
     }
 
 }
@@ -171,8 +171,7 @@ int main() {
                 bitcount = ir_tx.setData(format, buf, bitcount);
             }
         }
-       
-        wait(0.2); // 
+        wait(0.7); // simple debouncing 
         
     }
 }
@@ -212,6 +211,65 @@ int main() {
 
 數位三軸加速器模組，通常使用在需要偵測方向、手勢、動作的應用，能準確地反映物體的運動性質。
 
+感測器本身會會回傳 0~63 的結果，我們可以透過此結果依表轉換成 G 值(1g=m/s^2)或者角度(不建議使用)，詳細對照表可參照[此文件](http://www.freescale.com.cn/files/sensors/doc/data_sheet/MMA7660FC.pdf?fpsp=1) P.26~P.27。
+
+![數據解析對照表](http://i.imgur.com/h6il6ET.png)
+
+數據解析對照表
+
+範例：
+
+使用 MMA7660FC Library ，引入 *MMA7660FC.h* 標頭檔，來取得三軸加速器的數值，透過 G 值對照表轉換成 G 值。
+
+```
+
+#include "mbed.h"
+#include "MMA7660FC.h"
+ 
+#define ADDR_MMA7660 0x98                   // I2C SLAVE ADDR MMA7660FC
+ 
+MMA7660FC Acc(p28, p27, ADDR_MMA7660);      //sda、cl、Addr，更換接角時請務必更改此處
+Serial pc(USBTX, USBRX);
+
+// G值對照表
+float G_VALUE[64] = {0, 0.047, 0.094, 0.141, 0.188, 0.234, 0.281, 0.328, 0.375, 0.422, 0.469, 0.516, 0.563, 0.609, 0.656, 0.703, 0.750, 0.797, 0.844, 0.891, 0.938, 0.984, 1.031, 1.078, 1.125, 1.172, 1.219, 1.266, 1.313, 1.359, 1.406, 1.453, -1.500, -1.453, -1.406, -1.359, -1.313, -1.266, -1.219, -1.172, -1.125, -1.078, -1.031, -0.984, -0.938, -0.891, -0.844, -0.797, -0.750, -0.703, -0.656, -0.609, -0.563, -0.516, -0.469, -0.422, -0.375, -0.328, -0.281, -0.234, -0.188, -0.141, -0.094, -0.047};
+ 
+ 
+int main() 
+{
+ 
+    Acc.init();                                                     // Initialization
+    pc.printf("Value reg 0x06: %#x\n", Acc.read_reg(0x06));         // Test the correct value of the register 0x06
+    pc.printf("Value reg 0x08: %#x\n", Acc.read_reg(0x08));         // Test the correct value of the register 0x08
+    pc.printf("Value reg 0x07: %#x\n\r", Acc.read_reg(0x07));       // Test the correct value of the register 0x07
+           
+    while(1)
+    {   
+        float x=0, y=0, z=0;
+        float ax=0, ay=0, az=0;
+        
+        Acc.read_Tilt(&x, &y, &z);                                  // Read the acceleration                    
+        pc.printf("Tilt x: %2.2f degree \n", x);                    // Print the tilt orientation of the X axis
+        pc.printf("Tilt y: %2.2f degree \n", y);                    // Print the tilt orientation of the Y axis
+        pc.printf("Tilt z: %2.2f degree \n", z);                    // Print the tilt orientation of the Z axis
+ 
+        wait_ms(100);
+ 
+        pc.printf("x: %1.3f g \n", G_VALUE[Acc.read_x()]);          // Print the X axis acceleration
+        pc.printf("y: %1.3f g \n", G_VALUE[Acc.read_y()]);          // Print the Y axis acceleration
+        pc.printf("z: %1.3f g \n", G_VALUE[Acc.read_z()]);          // Print the Z axis acceleration
+        pc.printf("\n");
+        
+        //換算成 G值
+        ax = G_VALUE[Acc.read_x()];
+        ay = G_VALUE[Acc.read_y()];
+        az = G_VALUE[Acc.read_z()];
+        
+        wait(0.2);
+          
+    }
+}
+```
 ### 4 Digit Display
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。

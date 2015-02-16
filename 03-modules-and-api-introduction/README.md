@@ -89,6 +89,34 @@ int main()
 溫度感測器模組使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。
 感測器可偵測的範圍是 -40ºC - 125ºC，誤差為 ±1.5ºC。
 
+範例：
+使用 AnalogIn API 讀取 Temperature Sensor 的資料，依 Temperature Sensor 的 datasheet 轉換出溫度。
+
+```
+#include "mbed.h"
+
+AnalogIn devic(p15);
+
+int a;
+float temperature;
+int B=3975;                                                         //B value of the thermistor
+float resistance;
+
+int main()
+{
+    while(1) {
+
+        a=ain*675; // multiply ain by 675 if the Grove shield is set to 5V or 1023 if set to 3.3V
+        resistance=(float)(1023-a)*10000/a;                         //get the resistance of the sensor;
+        temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;    //convert to temperature via datasheet ;
+        
+        wait(0.8);
+        
+    }
+}
+
+```
+
 ### Grove - Light Sensor
 
 光源感測器模組包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
@@ -125,6 +153,27 @@ int main()
 
 紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
+範例：
+使用 RemoteIR Library，引入 *DigitDisplay.h* 標頭檔，來實做紅外線接收信號，將紅外線接收到的信號放在 buf
+```
+
+#include "mbed.h"
+#include "ReceiverIR.h"
+ReceiverIR ir_rx(p15);
+
+RemoteIR::Format format;
+uint8_t buf[32];
+int bitcount;
+int main() {
+    while(1)
+    {    
+        if (ir_rx.getState() == ReceiverIR::Received) {
+            bitcount = ir_rx.getData(&format, buf, sizeof(buf) * 8);
+        }
+    }
+}
+```
+
 ### Grove - Chainable RGB LED
 
 全彩可變色 LED 模組，可透過程式改變 LED 顏色。
@@ -137,6 +186,24 @@ int main()
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。
 
+範例：
+使用 DigitDisplay Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器。
+```
+#include "mbed.h"
+#include "DigitDisplay.h"
+
+DigitDisplay display(p27, p28);
+/**
+ * RX pin - p27
+ * TX pin - p28
+ */
+
+int main()
+{
+   display.write(30);
+}
+
+```
 
 # 實作：溫度感測器搭配四位數顯示器
 
@@ -164,7 +231,7 @@ int main()
 圖2：溫度感測器組裝完成圖
 
 ## 撰寫程式碼
-匯入 DigitDisplay  Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器
+使用 DigitDisplay  Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器，將 Temperature Sensor 讀取到的值依 Temperature Sensor 的 datasheet 轉換後，顯示在 LED 數字顯示器上。
 ```
 #include "mbed.h"
 #include "DigitDisplay.h"

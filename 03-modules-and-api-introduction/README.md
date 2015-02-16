@@ -12,6 +12,30 @@
 
 按鈕模組包含一顆獨立的「瞬間開/關」按鈕。「瞬間」是意思是，當按鈕被按壓後，按鈕會立刻主動反彈。按下按鈕時，按鈕模組會使 GPIO 腳位得到一個 High 信號，反彈時則輸出 LOW 信號。
 
+範例如下：
+使用 Button 控制 LED ，按鈕被按壓後 LED 亮，反彈時則 LED 不亮。
+```
+#include "mbed.h"
+
+DigitalOut myled(LED1);
+DigitalIn button(p21);
+
+int main()
+{
+    while(1){
+
+        if(button){
+            myled = 1 ;          
+        }  
+        else
+            myled = 0;   
+
+         wait(0.7); // simple debouncing      
+    }
+
+}
+
+```
 ### Grove - Buzzer
 
 蜂鳴器（Buzzer）模組的主要元件，是一個壓電式蜂鳴器。可以將蜂鳴器連接到 LPC1786 的數位輸出（Digital Output），當輸出為 HIGH 時發出聲響。

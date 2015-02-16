@@ -71,6 +71,19 @@ int main()
 
 旋轉角度感測器模組提供類比輸出介於 0 - Vcc，可偵測角度為 0 - 300 度。
 
+範例：
+
+使用 AnalogIn API 讀取旋轉角度。
+```
+AnalogIn RotaryAngle(A3);
+
+int main()
+{
+    int value = 0 ;
+    value = RotaryAngle;
+}
+```
+
 ### Grove - Temperature Sensor
 
 溫度感測器模組使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。

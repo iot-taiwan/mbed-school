@@ -90,6 +90,7 @@ int main()
 感測器可偵測的範圍是 -40ºC - 125ºC，誤差為 ±1.5ºC。
 
 範例：
+
 使用 AnalogIn API 讀取 Temperature Sensor 的資料，依 Temperature Sensor 的 datasheet 轉換出溫度。
 
 ```
@@ -106,7 +107,7 @@ int main()
 {
     while(1) {
 
-        a=ain*675; // multiply ain by 675 if the Grove shield is set to 5V or 1023 if set to 3.3V
+        a = devic*675; // multiply ain by 675 if the Grove shield is set to 5V or 1023 if set to 3.3V
         resistance=(float)(1023-a)*10000/a;                         //get the resistance of the sensor;
         temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;    //convert to temperature via datasheet ;
         
@@ -154,7 +155,7 @@ int main()
 紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
 範例：
-使用 RemoteIR Library，引入 *DigitDisplay.h* 標頭檔，來實做紅外線接收信號，將紅外線接收到的信號放在 buf
+使用 RemoteIR Library，引入 *DigitDisplay.h* 標頭檔，來實做紅外線接收信號。
 ```
 
 #include "mbed.h"

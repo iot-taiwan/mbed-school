@@ -43,7 +43,9 @@ http://sockets.mbed.org
 * Websocket channel server 服務，本書將使用 *sockets.mbed.org*
 * ARM mbed 的 Websocket client 實作
 
-## Websocket Client 實作
+## ARM mbed 的 Websocket client 實作
+
+使用 Websocket Library ，引入 *Websocket.h* 標頭檔後，建立 Websocket 連線後傳送 "WebSocket Hello World over Ethernet" 至 Websocket channel server 。
 
 ```
 #include "mbed.h"

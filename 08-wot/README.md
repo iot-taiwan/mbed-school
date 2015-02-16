@@ -23,6 +23,74 @@ Backbone with Virtual DOM
 
 ## Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
 
+Dust Sensor + WebSocket Client
+
+撰寫 ARM mbed 程式碼：
+
+程式碼如下：
+
+```
+
+#include "mbed.h"
+#include "EthernetInterface.h"
+#include "Websocket.h"
+
+EthernetInterface *eth;
+InterruptIn probe(p8);
+
+Timer timer;
+Ticker ticker;
+DigitalOut led1(LED1);
+Websocket ws("ws://wot.city/object/dust/send");
+uint32_t low_time = 0;
+
+void down();
+void up();
+
+void tick()
+{
+    char low_time_buf[256];
+    char buf[256];   
+    sprintf( low_time_buf, "%f", low_time / (30.0 * 1000000));
+    strcpy(buf, "{"); 
+    strcat(buf, "\"lowpulseoccupancytime\":");
+    strcat(buf, low_time_buf);
+    strcat(buf, "}");
+    ws.send(buf);
+    low_time = 0;
+   
+}
+ 
+void down()
+{
+    probe.rise(&up);
+    led1 = 0;
+    timer.start();
+}
+
+void up()
+{
+    led1 = 1;
+    timer.stop();
+    probe.fall(&down);
+    
+    low_time += timer.read_us();
+    timer.reset();
+}
+int main() {
+   
+    probe.fall(&down);
+    ticker.attach(tick, 30);
+
+    eth = new EthernetInterface;
+    eth->init(); //DHCP
+
+    if (eth->connect()) return -1;
+        
+    while (!ws.connect());
+    
+}
+```
 ## Websocket channel server
 
 ### WoT.City

@@ -27,7 +27,7 @@ Backbone with Virtual DOM
 
 ### WoT.City
 
-Websocket channel for ARM mbed.
+以下會介紹由 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel。
 
 ## How to use it
 

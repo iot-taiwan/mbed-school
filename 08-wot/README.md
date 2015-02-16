@@ -23,9 +23,9 @@ Backbone with Virtual DOM
 
 ## Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
 
-Dust Sensor + WebSocket Client
+### Dust Sensor + WebSocket Client
 
-撰寫 ARM mbed 程式碼：
+撰寫 ARM mbed 程式碼，以下範例結合第五章 Dust Sensor 及第七章 WebSocket Client。
 
 程式碼如下：
 

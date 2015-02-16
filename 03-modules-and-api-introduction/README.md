@@ -12,7 +12,8 @@
 
 按鈕模組包含一顆獨立的「瞬間開/關」按鈕。「瞬間」是意思是，當按鈕被按壓後，按鈕會立刻主動反彈。按下按鈕時，按鈕模組會使 GPIO 腳位得到一個 High 信號，反彈時則輸出 LOW 信號。
 
-範例如下：
+範例：
+
 使用 Button 控制 LED ，按鈕被按壓後 LED 亮，反彈時則 LED 不亮。
 ```
 #include "mbed.h"
@@ -24,9 +25,8 @@ int main()
 {
     while(1){
 
-        if(button){
+        if (button)
             myled = 1 ;          
-        }  
         else
             myled = 0;   
 
@@ -42,6 +42,31 @@ int main()
 
 亦可將蜂鳴器連接到類比輸出，此時可讓蜂鳴器產生各種音效。
 
+範例：
+
+使用 Button 控制蜂鳴器，按鈕被按壓後蜂鳴器發出聲響，反彈時則蜂鳴器無發出聲響。
+```
+#include "mbed.h"
+
+DigitalOut Buzzer(p20);
+DigitalIn button(p21);
+
+int main()
+{
+    while(1){
+
+        if (button)
+            Buzzer = 1 ;          
+        else
+            Buzzer = 0;   
+
+         wait(0.7); // simple debouncing      
+    }
+
+}
+
+```
+
 ### Grove - Rotary Angle Sensor 
 
 旋轉角度感測器模組提供類比輸出介於 0 - Vcc，可偵測角度為 0 - 300 度。
@@ -55,6 +80,30 @@ int main()
 
 光源感測器模組包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
 
+範例：
+
+使用 Light Sensor 控制 LED ，光亮時 LED 不亮，無光亮時則 LED 亮。
+```
+#include "mbed.h"
+
+DigitalOut myled(LED1);
+DigitalIn lighter(p21);
+
+int main()
+{
+    while(1){
+
+        if(lighter == 1)
+            myled = 0 ;          
+        else
+            myled = 1;   
+
+         wait(0.7); // simple debouncing      
+    }
+
+}
+
+```
 ### Grove - Infrared Emitter
 
 紅外線發射器模組，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。

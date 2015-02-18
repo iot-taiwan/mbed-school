@@ -93,9 +93,11 @@ int main() {
 ```
 ## Websocket channel server
 
+上一章提到 Websocket channel server 扮演封裝 IoT 物件的角色，對 Websocket server 來說，只要能定義好「channel」的結構，就能封裝數以萬計、千萬計的 IoT 物件。「抽像上來看，ARM mbed 仍然是 server 端」，就是這樣的觀念。
+
 ### WoT.City
 
-以下會介紹由 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel。
+Wot.City 為 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel。
 
 ## How to use it
 
@@ -127,10 +129,10 @@ ws://wot.city/object/mbedtaiwan/viewer
 站在 Websocket server 的角度，每個 Websocket client 使用 send 把資料串流透過 Websocket 連線傳送到 server。
 viewer 則是 server 把資料串流透過 Websocket server 傳送給 client。
 
+使用 Websocket channel server 來封裝 IoT objects，讓 IoT devices 成為抽象化的 Websocket server。
+
 ## AutomationJS
 
-前端使用 Backbone.js 實做 Virtual DOM。
-
-結果如下圖：
+前端使用 Backbone.js 實做 Virtual DOM。下圖為 Dust Sensor 及 Temperature Sensor 透過 Websocket 傳送 Sensor 數值到  Websocket channel server ，再由 Frontend 接收 Websocket channel server 的即時資料（經由 server push）後，顯示在網頁上。 Virtual DOM 讓下圖二個 Sensor 資料呈現區塊都是獨立的，當其中一個 Sensor 資料有變動時，只會更新單一區塊，而不是更新整個畫面。
 
 ![dashboard](http://i.imgur.com/BFturz1.png)

@@ -97,7 +97,7 @@ int main() {
 
 ### WoT.City
 
-Wot.City 為 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel Server。以下為 WebSocketServer 的程式碼，使用 node.js 開發，當 WebSocket Server 接收到資料後，即時 push 給用戶（user）。
+Wot.City 為 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel Server。以下為 WebSocket Server 的程式碼，使用 node.js 開發，當 WebSocket Server 接收到資料後，即時 push 給用戶（user）。
 ```
 
 var http = require("http");

@@ -6,7 +6,7 @@
 
 ## 準備工作
 
-LPC1768 本身沒有 PHY 功能，因此必須使用 mbed shield 子板，將 LPC1786 加上 ethernet 功能；也可以改用 Seeed Studio 設計與生產的 Arch Pro 開發板。
+LPC1768 本身沒有 PHY 功能，因此必須使用 mbed shield 子板或是使用 wifi shield，將 LPC1786 加上 ethernet 功能；也可以改用 Seeed Studio 設計與生產的 Arch Pro 開發板。
 
 ## 使用 DHCP 取得 IP 位址
 
@@ -70,19 +70,42 @@ int main() {
 }
 ```
 
-## 使用 Static IP 位址
+## 使用 EthernetInterface Library 進行網路組態 
 
-先匯入 ARM mbed 提供的 EthernetInterface Library 後， 引入 *EthernetInterface.h* 標頭檔，即可設定 Static IP 位址。
+先匯入 ARM mbed 提供的 EthernetInterface Library 後， 引入 *EthernetInterface.h* 標頭檔，即可設定 Static IP 位址或使用 DHCP 進行網路組態。
+
 ```
 #include "mbed.h"
 #include "EthernetInterface.h"
 
 int main(void) {
     eth = new EthernetInterface;
+    
+    //eth->init(); Use DHCP
     eth->init("192.168.21.81", "255.255.255.0", "192.168.21.2" );
-
+    
     if (eth->connect()) 
         return -1;
+
+    printf("IP Address is %s\r\n", eth->getIPAddress());
+}
+```
+
+
+## 使用 WiflyInterface Library 進行網路組態 
+
+先匯入 ARM mbed 提供的 WiflyInterface Library 後， 引入 *WiflyInterface.h* 標頭檔，即可設定 Static IP 位址或使用 DHCP 進行網路組態。
+
+```
+#include "mbed.h"
+#include "WiflyInterface.h"
+
+WiflyInterface wifly(p13, p14, p19, p26, "WWNet", "mmmmmmmm", WPA); 
+int main(void) {
+
+    wifly.init(); Use DHCP
+    wifly.init("192.168.21.45","255.255.255.0","192.168.21.2");
+    while (!wifly.connect());
 
     printf("IP Address is %s\r\n", eth->getIPAddress());
 }

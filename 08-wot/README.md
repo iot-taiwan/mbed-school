@@ -87,8 +87,63 @@ int main() {
 
     if (eth->connect()) return -1;
         
+    
+}
+```
+### Temperature Sensor + WebSocket Client
+
+撰寫 ARM mbed 程式碼，以下範例結合第三章 Temperature Sensor 及第七章 WebSocket Client。
+
+程式碼如下
+```
+
+/* Grove - Temprature Sensor demo v1.0
+*  This sensor detects the enviroment temprature,
+*  Uses a Arch-Pro board with Grove Base Shield
+*  Connect the Grove Temperature sensor to A0 and
+*  connect a Grove 4 digit LED display to the UART connector
+*  The temperature will be displayed in Celcius
+*  Modified by David Bottrill from the original Arduino code
+*  Reference: http://www.seeedstudio.com
+*/
+
+#include "mbed.h"
+#include "DigitDisplay.h"
+#include "WiflyInterface.h"
+#include "Websocket.h"
+
+EthernetInterface *eth;
+DigitalOut myled(LED2);
+
+DigitDisplay display(P4_29, P4_28);
+AnalogIn ain(P0_23);
+
+int a;
+float temperature;
+int B=3975;                                                         //B value of the thermistor
+float resistance;
+WiflyInterface wifly(p13, p14, p19, p26, "WWNet", "mmmmmmmm", WPA);
+int main()
+{
+    wifly.init(); //Use DHCP
+    //wifly.init("192.168.21.45","255.255.255.0","192.168.21.2");
+    while (!wifly.connect());
+    
+    Websocket ws("ws://wot.city/object/temperature/send");
     while (!ws.connect());
     
+    
+    while(1) {
+        char data[256];
+        // multiply ain by 675 if the Grove shield is set to 5V or 1023 if set to 3.3V
+        a=ain*675;
+        resistance=(float)(1023-a)*10000/a;                         //get the resistance of the sensor;
+        temperature=1/(log(resistance/10000)/B+1/298.15)-273.15;    //convert to temperature via datasheet ;
+        
+        wait(0.8);
+        sprintf( data , "{ \"temperature\": %f }",temperature);
+        ws.send(data);
+    }
 }
 ```
 ## Websocket channel server

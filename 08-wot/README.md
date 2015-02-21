@@ -247,6 +247,9 @@ function start(route, handlers) {
 
 WebSocket-Node 原始碼可由 Github 上取得：
 
+```
+https://github.com/Worlize/WebSocket-Node
+```
 先將 WebSocket-Node 的 'server' 匯入，如程式碼第3行。其它的細節如下：
 
 1. 將 HTTP Server 物件，聚合至（傳遞）WebSocket Server。WebSocker Server 的物件名稱為 wsServer

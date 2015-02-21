@@ -238,6 +238,15 @@ function start(route, handlers) {
 }
 ```
 程式碼說明：
+
+這裡使用的 WebSocket 模組，要使用 npm 工具另外安裝。利用 npm 安裝 WebSocket-Node：
+
+```
+ $ npm install websocket
+```
+
+WebSocket-Node 原始碼可由 Github 上取得：
+
 先將 WebSocket-Node 的 'server' 匯入，如程式碼第3行。其它的細節如下：
 
 1. 將 HTTP Server 物件，聚合至（傳遞）WebSocket Server。WebSocker Server 的物件名稱為 wsServer

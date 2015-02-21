@@ -364,8 +364,10 @@ GET /1/mbed/lpc1768/sensor/dust/sen12291p
 
 試想，Dust Sensor 要回傳二筆資料，這二筆資料都是低功率時間：
 
+```
 0.12345
 0.2468
+```
 然後用XML來表示，就變成：
 ```
 <DustSensor>

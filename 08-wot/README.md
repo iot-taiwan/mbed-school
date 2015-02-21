@@ -255,9 +255,9 @@ https://github.com/Worlize/WebSocket-Node
 1. 將 HTTP Server 物件，聚合至（傳遞）WebSocket Server。WebSocker Server 的物件名稱為 wsServer
 2. 在 wsServer 物件裡註冊一個 Request Handler，即 onWsRequest() 函數
 3. 當 WebSocket 的連線請求發生時，便回呼此函數
-4. 為此連線註冊 Message Handler 與 Close Handler 函數
+4. 為此連線註冊 Message Handler 
 5. 收到用戶端傳送過來的訊息時，回呼此函數，將收到的訊息儲存，並將訊息即時（Real-time）推送（Push）到所有的用戶端
-6. 該 WebSocket 連線關閉後，回呼此函數。
+
 
 ## How to use it
 

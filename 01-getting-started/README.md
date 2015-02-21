@@ -108,7 +108,7 @@ http://developer.mbed.org/users/mbedschool/code/mbed_led_run/
 
 ## ARM mbed 的 online compiler 
 
-ARM mbed 的 online compiler 還有版本管理的功能。一個開發者對於版本管理是很重要的，像 github 也是一個很好的版本管理系统
+ARM mbed 的 online compiler 有版本管理的功能，還能分享自己的程式碼。一個開發者對於版本管理是很重要的，像 github 也是一個很好的版本管理系统
 
 ## 關於 mbed 作業系統
 

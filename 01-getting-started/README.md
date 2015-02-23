@@ -61,9 +61,10 @@ ARM mbed 作業系統本身具備 networking feature（例如：3G、ethernet）
 
 ![圖 1.4：本書架構](http://i.imgur.com/xWO0DEd.jpg)
 
+圖 1.4：本書架構
+
 mbed School 是本教材的計畫名稱，目標是共創一份 ARM mbed 開放教材。所有內容採 CC BY-NC-SA 授權聲明。
 
-圖 1.4：本書架構
 
 ## 實習：跑馬燈
 

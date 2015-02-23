@@ -234,12 +234,12 @@ int main() {
 
 pinout 接法
 
-| sensor pin | mbed pin        |
-| ---------- | --------------- |
-| 1 - RX     | P15 - AnalogIn  |
-| 2 - NC     | 不用接          |
-| 3 - Vcc    | Vout - 3.3V     |
-| 4 - GND    | GND             |
+|sensor pin|mbed pin       
+|----------|---------------
+|1 - RX    |P15 - AnalogIn 
+|2 - NC    |不用接          
+|3 - Vcc   |Vout - 3.3V    
+|4 - GND   |GND            
 
 範例：
 
@@ -349,7 +349,9 @@ pinout 接法
 | 4 - GND    | GND        |
 
 範例：
+
 使用 DigitDisplay Library ，引入 *DigitDisplay.h* 標頭檔，來實做 4 位數字顯示器。
+
 ```
 #include "mbed.h"
 #include "DigitDisplay.h"
@@ -426,7 +428,9 @@ int main()
 ## 即時溫度監控顯示畫面 
 
 由程式碼定義 Arch Pro 的第二顆 LED 紅燈閃爍來簡易判斷是否有正常執行運作。
+
 ![圖3：溫度監控即時顯示 LED 實作](http://i.imgur.com/AKgq0Qf.jpg)
+
 圖3：溫度監控即時顯示 LED 實作
 
 ## 參考資源

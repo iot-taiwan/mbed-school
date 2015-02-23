@@ -1,6 +1,6 @@
 # 第 1 章：ARM mbed 起步走
 
-## 歡迎來到 Web of Things 世界
+## 歡迎來到 Web of Things（WoT）世界
 
 在 IoT 的技術發展藍圖裡，描述了 IoT 的 4 個發展階段，其中第 4 個階段就是 WoT。而目前正好處於第 4 個 IoT 發展階段。Google 在 2014 年底發起的 Physical Web 計畫，是一個非常先期的研究計畫，就是為了 IoT 的新階段預做準備 [1]。
 

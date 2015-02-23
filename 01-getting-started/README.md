@@ -113,7 +113,7 @@ ARM mbed 的 online compiler 有版本管理的功能，還能分享自己的程
 
 ## 關於 mbed 作業系統
 
-ARM mbed 是一個 full stack 作業系統，底層是一個 RTOS 作業系統核心。mbed RTOS 本身提供以下機制：
+ARM mbed 是一個 full stack 作業系統，底層是一個 RTOS （real-time operating system）作業系統核心。mbed RTOS 本身提供以下機制：
 
 * Thread
 * Mutex

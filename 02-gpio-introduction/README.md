@@ -1,5 +1,5 @@
 # 第 2 章：學習 ARM mbed GPIO 控制
-GPIO 全名為 General Purpose Input/Output，是通用型輸入/輸出，所有與 sensor 的介面都是透過 GPIO 來控制，也就是透過 I/O pin 來執行訊號的輸入或輸出，所以首先我們應該要學會如何使用 GPIO 這是很基礎也很重要的。
+GPIO 全名為 General Purpose Input/Output，是通用型輸入/輸出，所有與 sensor 溝通的介面都是透過 GPIO 來控制，也就是透過 I/O pin 來執行訊號的輸入或輸出，所以首先我們應該要學會如何使用 GPIO，這是很基礎也很重要的。
 
 ## 準備工作
 ### LPC1786 pinout

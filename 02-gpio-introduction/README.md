@@ -142,7 +142,7 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 1. ARM mbed LPC 1768 開發版
 2. 麵包板 x 1
-3. 紅色導線 x 1，黑色導線 x 1
+3. 紅色跳線 x 1，黑色跳線 x 1
 4. LED x 1
 
 ![圖 2.1：本章節使用的零件](http://i.imgur.com/5iD2ehn.jpg)
@@ -156,8 +156,8 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 1. 將 LPC 1768 開發版插上麵包板
 2. LED 有兩支針腳，一長一短，長的接正極，短的接負極
-3. 紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的 pin，另一端接到麵包板上的正極
-4. 黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
+3. 紅色跳線一端接到 LPC 1768 開發版 3.3v Regulated Out 的 pin，另一端接到麵包板上的正極
+4. 黑色跳線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
 5. LED pin 長端插上麵包板正極，短端插上麵包板負極
 
 ![圖 2.2：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
@@ -168,13 +168,13 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 圖 2.3：LED 有兩支 pin，一長一短，長的接正極，短的接負極
 
-![圖 2.4：紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極](http://i.imgur.com/mJZWmMH.jpg)
+![圖 2.4：紅色跳線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極](http://i.imgur.com/mJZWmMH.jpg)
 
-圖 2.4：紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極
+圖 2.4：紅色跳線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極
 
-![圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極](http://i.imgur.com/aszlXqG.jpg)
+![圖 2.5：黑色跳線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極](http://i.imgur.com/aszlXqG.jpg)
 
-圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
+圖 2.5：黑色跳線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
 
 ![圖 2.6：LED 針腳 pin 插上麵包板正極，短端插上麵包板負極](http://i.imgur.com/3Duw0rK.jpg)
 
@@ -190,7 +190,7 @@ myled = 1;  // 也可以寫成 myled.write(1);
 依照以下步驟來以 *DigitalOut* 控制 LED：
 
 1. 將 LPC1768 開發版插上麵包板
-2. 紅色導線一端接到 LPC 1768 開發版 GND pibn，另一端接到麵包板上的正極
+2. 紅色跳線一端接到 LPC 1768 開發版 GND pibn，另一端接到麵包板上的正極
 3. LED pin 長端插上 p21~p26 任意一個 pin，pin 短端插上麵包板正極
 4. 撰寫程式碼
 
@@ -198,9 +198,9 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 圖 2.8：將 LPC 1768 開發版插上麵包板
 
-![圖 2.9：紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極](http://i.imgur.com/LT0xdWQ.jpg)
+![圖 2.9：紅色跳線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極](http://i.imgur.com/LT0xdWQ.jpg)
 
-圖 2.9：紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
+圖 2.9：紅色跳線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
 
 ![圖 2.10：LED 針腳長端插上 p21~p26 任意一個針腳，針腳短端插上麵包板正極](http://i.imgur.com/99qiOYr.jpg)
 

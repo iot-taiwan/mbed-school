@@ -234,12 +234,12 @@ int main() {
 
 pinout 接法
 
-|sensor pin|mbed pin       
-|----------|---------------
-|1 - RX    |P15 - AnalogIn 
-|2 - NC    |不用接          
-|3 - Vcc   |Vout - 3.3V    
-|4 - GND   |GND            
+|sensor pin|mbed pin        |
+|==========|================|
+|1 - RX    |P15 - AnalogIn  |
+|2 - NC    |不用接           |
+|3 - Vcc   |Vout - 3.3V     |
+|4 - GND   |GND             |
 
 範例：
 

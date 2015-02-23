@@ -1,12 +1,12 @@
 # 第 2 章：學習 ARM mbed GPIO 控制
-GPIO 全名為 General Purpose Input/Output，是通用型輸入/輸出，所有與 sersor 的介面都是透過 GPIO 來控制，也就是透過 I/O PIN 腳來執行訊號的輸入或輸出，所以首先我們應該要學會如何使用 GPIO 這是很基礎也很重要的。
+GPIO 全名為 General Purpose Input/Output，是通用型輸入/輸出，所有與 sensor 的介面都是透過 GPIO 來控制，也就是透過 I/O pin 來執行訊號的輸入或輸出，所以首先我們應該要學會如何使用 GPIO 這是很基礎也很重要的。
 
 ## 準備工作
-### LPC1786 的 Pinout 圖
-![圖 2.1：LPC1786 的 Pinout 圖](http://i.imgur.com/5vpCFjM.png)
-### ARM mbed PIN 腳名稱定義
+### LPC1786 pinout
+![圖 2.1：LPC1786 pinout](http://i.imgur.com/5vpCFjM.png)
+### ARM mbed pin 名稱定義
 
-ARM mbed 具體的 PIN 腳名稱，如第一章用的 LED1、LED2、LED3、LED4 是在那裡定義的呢？ ARM mbed 的 PIN 腳定義放在 *PinNames.h*，內容如下：
+ARM mbed 具體的 pin 名稱，如第一章用的 LED1、LED2、LED3、LED4 是在那裡定義的呢？ ARM mbed 的 pin 定義放在 *PinNames.h*，內容如下：
 
 ```
 typedef enum {
@@ -93,9 +93,9 @@ typedef enum {
     NC = (int)0xFFFFFFFF
 } PinName;
 ```
-### LPC1768 的 GPIO 腳位控制
+### LPC1768 的 GPIO 控制
 
-本章將使用 ARM mbed 的 *DigitalOut* 巨集來控制 GPIO 腳位。以下是幾個基本觀念：
+本章將使用 ARM mbed 的 *DigitalOut* 巨集來控制 GPIO。以下是幾個基本觀念：
 
 1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 LED 燈。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
 
@@ -111,21 +111,21 @@ DigitalOut myled(p21);
 
 ### ARM mbed *DigitalOut* API 說明
 
-我們在前面第一章 LED 的範例使用了 ARM mbed 的 *DigitalOut* API。在 LPC1768 開發版上，*DigitalOut* 可控制 P5-P30 PIN 腳。在 LPC1768 開發版的 PIN 腳說明卡上，P5-P30 就是藍色標籤的 PIN 腳。
+我們在前面第一章 LED 的範例使用了 ARM mbed 的 *DigitalOut* API。在 LPC1768 開發版上，*DigitalOut* 可控制 P5-P30 pin。在 LPC1768 開發版的 pin 說明卡上，P5-P30 就是藍色標籤的 pin。
+ 
+當 *DigitalOut* 的傳入值為 0 時，表示設定 pin 為 off；反之，傳入值為 1 時為 on。GPIO 有關的 API 整理如下：
 
-當 *DigitalOut* 的傳入值為 0 時，表示設定 PIN 腳為 off；反之，傳入值為 1 時為 on。GPIO 有關的 API 整理如下：
+* DigitalOut(PinName pin) 宣告 DistigalOut 的 pin 的連結
 
-* DigitalOut(PinName pin) 宣告 DistigalOut 的 PIN 腳的連結
+* void write(int value) 設定 pin 值
 
-* void write(int value) 設定 PIN 腳值
+* int read() 讀取 pin 值
 
-* int read() 讀取 PIN 腳值
+* DigitalOut& operator = (int value) 設定 pin 的值
 
-* DigitalOut& operator = (int value) 設定 PIN 腳的值
+* DigitalOut& operator = (DigitalOut& rhs) 設定 pin 的值為另一個 pin
 
-* DigitalOut& operator = (DigitalOut& rhs) 設定 PIN 腳的值為另一個 PIN 腳
-
-* operator int() 讀取 PIN 腳的簡易寫法
+* operator int() 讀取 pin 的簡易寫法
 
 範例：
 
@@ -156,42 +156,42 @@ myled = 1;  // 也可以寫成 myled.write(1);
 
 1. 將 LPC 1768 開發版插上麵包板
 2. LED 有兩支針腳，一長一短，長的接正極，短的接負極
-3. 紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極
-4. 黑色導線一端接到 LPC 1768 開發版 GND 的針腳，另一端接到麵包板上的負極
-5. LED 針腳長端插上麵包板正極，短端插上麵包板負極
+3. 紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的 pin，另一端接到麵包板上的正極
+4. 黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
+5. LED pin 長端插上麵包板正極，短端插上麵包板負極
 
 ![圖 2.2：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)
 
 圖 2.2：將 LPC 1768 開發版插上麵包板
 
-![圖 2.3：LED 有兩支針腳，一長一短，長的接正極，短的接負極](http://i.imgur.com/GzFrp2W.jpg)
+![圖 2.3：LED 有兩支 pin，一長一短，長的接正極，短的接負極](http://i.imgur.com/GzFrp2W.jpg)
 
-圖 2.3：LED 有兩支針腳，一長一短，長的接正極，短的接負極
+圖 2.3：LED 有兩支 pin，一長一短，長的接正極，短的接負極
 
 ![圖 2.4：紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極](http://i.imgur.com/mJZWmMH.jpg)
 
 圖 2.4：紅色導線一端接到 LPC 1768 開發版 3.3v Regulated Out 的針腳，另一端接到麵包板上的正極
 
-![圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的針腳，另一端接到麵包板上的負極](http://i.imgur.com/aszlXqG.jpg)
+![圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極](http://i.imgur.com/aszlXqG.jpg)
 
-圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的針腳，另一端接到麵包板上的負極
+圖 2.5：黑色導線一端接到 LPC 1768 開發版 GND 的 pin，另一端接到麵包板上的負極
 
-![圖 2.6：LED 針腳長端插上麵包板正極，短端插上麵包板負極](http://i.imgur.com/3Duw0rK.jpg)
+![圖 2.6：LED 針腳 pin 插上麵包板正極，短端插上麵包板負極](http://i.imgur.com/3Duw0rK.jpg)
 
-圖 2.6：LED 針腳長端插上麵包板正極，短端插上麵包板負極
+圖 2.6：LED 針腳 pin 插上麵包板正極，短端插上麵包板負極
 
 ![圖 2.7：LED 點亮，測試成功](http://i.imgur.com/Iom5KME.jpg)
 
 圖 2.7：LED 點亮，測試成功
 
 ## 實習：以 *DigitalOut* 控制 LED 
-接下來我們開始進行第一個 GPIO 控制，以 ARM mbed 的 *DigitalOut* 控制 PIN 腳輸出高電平或者低電平來控制 LED。
+接下來我們開始進行第一個 GPIO 控制，以 ARM mbed 的 *DigitalOut* 控制 pin 輸出高電平或者低電平來控制 LED。
 
 依照以下步驟來以 *DigitalOut* 控制 LED：
 
 1. 將 LPC1768 開發版插上麵包板
-2. 紅色導線一端接到 LPC 1768 開發版 GND 針腳，另一端接到麵包板上的正極
-3. LED 針腳長端插上 p21~p26 任意一個針腳，針腳短端插上麵包板正極
+2. 紅色導線一端接到 LPC 1768 開發版 GND pibn，另一端接到麵包板上的正極
+3. LED pin 長端插上 p21~p26 任意一個 pin，pin 短端插上麵包板正極
 4. 撰寫程式碼
 
 ![圖 2.8：將 LPC 1768 開發版插上麵包板](http://i.imgur.com/2Nx0FSh.jpg)

@@ -1,18 +1,18 @@
-# 第 3 章：Sensor 模組
+# 第 3 章：Sensor 元件
 
-第 3 章開始，將使用一些常見的 sensor 模組，來實做一些 IoT 的概念。以下先總覽幾個常用的 sensor 模組。所有模組皆可在 Grove Starter Kit for mbed 套件裡取得。
+第 3 章開始，將使用一些常見的 sensor 元件，實做 IoT 的概念。以下先總覽幾個常用的 sensor 元件。所有元件皆可在 Grove Starter Kit for mbed 套件裡取得。
 
 ![圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed](1.3_grove-kit.jpg)
 
 圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed
 
-以下是 Grove Starter Kit for mbed 裡的 sensor 模組簡介。
+以下是 Grove Starter Kit for mbed 裡的 sensor 元件簡介。
 
 ### Grove - Button
 
-按鈕模組包含一顆獨立的「瞬間開/關」按鈕。「瞬間」是意思是，當按鈕被按壓後，按鈕會立刻主動反彈。按下按鈕時，按鈕模組會使 GPIO 腳位得到一個 High 信號，反彈時則輸出 LOW 信號。
+按鈕元件包含一顆獨立的「瞬間開/關」按鈕。「瞬間」是意思是，當按鈕被按壓後，按鈕會立刻主動反彈。按下按鈕時，按鈕元件會使 GPIO pin 得到一個 High 信號，反彈時則輸出 LOW 信號。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin         |
 | ---------- | ---------------- |
@@ -43,15 +43,15 @@ int main()
     }
 
 }
-
 ```
+
 ### Grove - Buzzer
 
-蜂鳴器（Buzzer）模組的主要元件，是一個壓電式蜂鳴器。可以將蜂鳴器連接到 LPC1786 的數位輸出（Digital Output），當輸出為 HIGH 時發出聲響。
+蜂鳴器（Buzzer）元件主要由一個壓電式蜂鳴器組成。可以將蜂鳴器連接到 LPC1786 的數位輸出（Digital Output），當輸出為 HIGH 時發出聲響。
 
 亦可將蜂鳴器連接到類比輸出，此時可讓蜂鳴器產生各種音效。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin         |
 | ---------- | ---------------- |
@@ -82,14 +82,13 @@ int main()
     }
 
 }
-
 ```
 
 ### Grove - Rotary Angle Sensor 
 
 旋轉角度感測器模組提供類比輸出介於 0 - Vcc，可偵測角度為 0 - 300 度。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin       |
 | ---------- | -------------- |
@@ -113,10 +112,10 @@ int main()
 
 ### Grove - Temperature Sensor
 
-溫度感測器模組使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。
+溫度感測器元件使用溫敏電阻偵測環境溫度。當環境溫度上升時，溫敏電阻值將會下降。我們可以利用這個特性去計算出環境溫度。
 感測器可偵測的範圍是 -40ºC - 125ºC，誤差為 ±1.5ºC。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin       |
 | ---------- | -------------- |
@@ -151,14 +150,13 @@ int main()
         
     }
 }
-
 ```
 
 ### Grove - Light Sensor
 
-光源感測器模組包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
+光源感測器元件包含一個光敏電阻。當環境光源的強度上升時，光敏電阻值將會下降。也就是說，光亮時輸出訊號為 HIGH，黑暗時為 LOW。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin        |
 | ---------- | --------------- |
@@ -189,13 +187,13 @@ int main()
     }
 
 }
-
 ```
+
 ### Grove - Infrared Emitter
 
-紅外線發射器模組，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。
+紅外線發射器元件，透過紅外線 LED 發射紅外線，可發射 10 米的紅外線訊號，超過 10 米，紅外線接收器可能接收不到訊號。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin        |
 | ---------- | --------------- |
@@ -207,7 +205,6 @@ int main()
 範例：
 
 使用 Button 控制 Infrared Emitter ，按鈕被按壓後發射紅外線 { 0x80, 0x00 } 訊號，將 RemoteIR Library 匯入後，引入 *TransmitterIR.h* 標頭檔，來實做發射紅外線訊號。
-
 ```
 
 #include "mbed.h"
@@ -233,9 +230,9 @@ int main() {
 
 ### Grove - Infrared Receiver
 
-紅外線接收器模組，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
+紅外線接收器元件，用來接收紅外線信號，可接收 10 米的紅外線信號，通常與紅外線發射器一起使用。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin        |
 | ---------- | --------------- |
@@ -268,17 +265,17 @@ int main() {
 
 ### Grove - Chainable RGB LED
 
-全彩可變色 LED 模組，可透過程式改變 LED 顏色。
+全彩可變色 LED 元件，可透過程式改變 LED 顏色。
 
 ### Grove - 3-Axis Digital Accelerometer
 
-數位三軸加速器模組，通常使用在需要偵測方向、手勢、動作的應用，能準確地反映物體的運動性質。
+數位三軸加速器元件，通常使用在需要偵測方向、手勢、動作的應用，能準確地反映物體的運動性質。
 
 感測器本身會會回傳 0~63 的結果，我們可以透過此結果依表轉換成 G 值(1g=m/s^2)或者角度(不建議使用)，詳細對照表可參照[此文件](http://www.freescale.com.cn/files/sensors/doc/data_sheet/MMA7660FC.pdf?fpsp=1) P.26~P.27。數據解析對照表如下：
 
 ![數據解析對照表](http://i.imgur.com/h6il6ET.png)
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin   |
 | ---------- | ---------- |
@@ -290,7 +287,6 @@ int main() {
 範例：
 
 使用 MMA7660FC Library ，引入 *MMA7660FC.h* 標頭檔，來取得三軸加速器的數值，透過 G 值對照表轉換成 G 值。
-
 ```
 
 #include "mbed.h"
@@ -304,10 +300,8 @@ Serial pc(USBTX, USBRX);
 // G值對照表
 float G_VALUE[64] = {0, 0.047, 0.094, 0.141, 0.188, 0.234, 0.281, 0.328, 0.375, 0.422, 0.469, 0.516, 0.563, 0.609, 0.656, 0.703, 0.750, 0.797, 0.844, 0.891, 0.938, 0.984, 1.031, 1.078, 1.125, 1.172, 1.219, 1.266, 1.313, 1.359, 1.406, 1.453, -1.500, -1.453, -1.406, -1.359, -1.313, -1.266, -1.219, -1.172, -1.125, -1.078, -1.031, -0.984, -0.938, -0.891, -0.844, -0.797, -0.750, -0.703, -0.656, -0.609, -0.563, -0.516, -0.469, -0.422, -0.375, -0.328, -0.281, -0.234, -0.188, -0.141, -0.094, -0.047};
  
- 
 int main() 
 {
- 
     Acc.init();                                                     // Initialization
     pc.printf("Value reg 0x06: %#x\n", Acc.read_reg(0x06));         // Test the correct value of the register 0x06
     pc.printf("Value reg 0x08: %#x\n", Acc.read_reg(0x08));         // Test the correct value of the register 0x08
@@ -340,11 +334,12 @@ int main()
     }
 }
 ```
+
 ### 4 Digit Display
 
 數字顯示器為顯示數字的電子元件。藉由 7 個 LED 以不同組合來顯示數字，所以稱為 7 段顯示器。4 位數字顯示器即可顯示 4 個數字，可當時鐘。
 
-腳位接法
+pinout 接法
 
 | sensor pin | mbed pin   |
 | ---------- | ---------- |
@@ -369,7 +364,6 @@ int main()
 {
    display.write(30);
 }
-
 ```
 
 # 實作：家庭溫度器
@@ -427,8 +421,8 @@ int main()
         display.write(temperature);
     }
 }
-
 ```
+
 ## 即時溫度監控顯示畫面 
 
 由程式碼定義 Arch Pro 的第二顆 LED 紅燈閃爍來簡易判斷是否有正常執行運作。
@@ -436,4 +430,6 @@ int main()
 圖3：溫度監控即時顯示 LED 實作
 
 ## 參考資源
-* http://developer.mbed.org/users/djbottrill/code/Grove_Thermometer/
+```
+http://developer.mbed.org/users/djbottrill/code/Grove_Thermometer/
+```

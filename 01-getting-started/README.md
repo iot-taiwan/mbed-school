@@ -40,7 +40,7 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃�
 2. 編譯成功後，會自動下載一個副檔名為 *.bin* 的 firmware
 3. 將下載回來的 firmware 拷貝到 LPC1768 開發板
 
-使用 Mac 環境的開發者，使用 USB 將 LPC1768 與電腦連接後，會看到 *MBED/* 資料夾，只要將 firmware 檔案拉到此資料裡即可，如圖 1.3。
+使用 Mac 環境的開發者，使用 USB 將 LPC1768 與電腦連接後，會看到 *MBED/* 資料夾，只要將 firmware 檔案拉到此資料夾裡即可，如圖 1.3。
 
 4. 拔除並重接 USB 線，讓 LPC1786 重新關機。
 5. 完成。可以看到 LPC1786 的 LED1 開始閃爍。

@@ -68,7 +68,7 @@ mbed School 是本教材的計畫名稱，目標是共創一份 ARM mbed 開放�
 
 ## 實習：跑馬燈
 
-學會使用 mbed 的 online compiler 後，可以從基本的 GPIO 控制開始學習。這是一個控制 LPC1786 LED 燈的範例，請練習編譯並測試本範例。
+學會使用 mbed 的 online compiler 後，可以從基本的 GPIO 控制開始學習。這是一個控制 LPC1786 LED 的範例，請練習編譯並測試本範例。
 
 ```
 #include "mbed.h"

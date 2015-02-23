@@ -34,7 +34,7 @@ ARM mbed 的開發，必須使用 mbed.org 官方的 on-line compiler。將 LPC1
 
 圖 1.2：New Program
 
-mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED 閃爍的程式碼範本。接著進行編譯與 firmware 更新：
+mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED（發光二極體，Light-Emitting Diode，縮寫：LED））閃爍的程式碼範本。接著進行編譯與 firmware 更新：
 
 1. 在 workspace 裡點選 *Compile -> Compile All*
 2. 編譯成功後，會自動下載一個副檔名為 *.bin* 的 firmware

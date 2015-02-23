@@ -97,7 +97,7 @@ typedef enum {
 
 本章將使用 ARM mbed 的 *DigitalOut* 巨集來控制 GPIO。以下是幾個基本觀念：
 
-1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 發光二極體（Light-Emitting Diode，縮寫：LED）。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
+1. 選擇 GPIO Pinout。選擇 LPC1786 的 GPIO p21 來控制 LED。參考 LPC1786 的 Pinout 圖，學習如何將 LED 連接至開發板。
 
 2. 使用麵包板進行實驗。
 

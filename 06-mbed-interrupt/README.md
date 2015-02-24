@@ -12,7 +12,7 @@ GET request 的方式呼叫 REST API，取得 Server 端（此為 Grove - Dust S
 
 ## ARM mbed 中斷系統
 
-ARM mbed 中斷系統可以偵測 pin 值的變化、計時器時間的變化以及通訊狀態的變化，實作的類型一般可以分成兩種：
+ARM mbed 中斷系統可以偵測 pin 的數值變化、計時器時間的變化以及通訊狀態的變化，實作的類型一般可以分成兩種：
 
 * 輪詢（Polling）
 * 中斷（Interrupt）

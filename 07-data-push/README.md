@@ -74,5 +74,6 @@ int main() {
 ```
 
 ![圖 7.1：Websocket channel server](http://i.imgur.com/RGTk67m.png)
+
 圖 7.1：Websocket channel server
 

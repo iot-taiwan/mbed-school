@@ -381,6 +381,7 @@ int main()
 * Grove - Universal 4 Pin 20cm Unbuckled Cable
 
 ![圖1：溫度感測器實作採用零件 ](http://i.imgur.com/kxaUJKu.jpg)
+
 圖1：溫度感測器實作採用零件
 
 ## 溫度感測器實作步驟
@@ -391,6 +392,7 @@ int main()
 * 記得將 Base Shield 切換至 5V VCC 
 
 ![圖2：完成圖](http://i.imgur.com/uhJPzho.jpg)
+
 圖2：溫度感測器組裝完成圖
 
 ## 撰寫程式碼

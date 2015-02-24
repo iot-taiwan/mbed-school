@@ -8,29 +8,27 @@ WoT 是 IoT 的 Application Layer，並且是使用 Web 技術來打造 applicat
 
 AutomationJS 是一個輕量級的 Composition Layer 實作，並且使用 Backbone 做為 Model-View 的基礎；未來也將接軌 HTML 5 的新技術標準－Shadow DOM。
 
-有了 AutomationJS 後，差不多就解決了 WoT 的一個關鍵技術問題。本章將實做完整 WoT 整合，整合內容如下：
+有了 AutomationJS 後，差不多就解決了 WoT 的一個關鍵技術問題。本章將以一個實例，實一個符合 WoT 概念的 IoT 應用程式。重點技術如下：
 
-Block #1：Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
+* 使用 Dust Sensor、Temperature Sensor
+* 實作 WebSocket Client
+* 使用 WebSocket channel server
+* 使用 AutomationJS 實作 Data Composition Layer
+* 使用 AutomationJS 實作 Virtual DOM 技術
 
-Block #2：Websocket channel server
+前面的章節，介紹了 ARM mbed 官方的 WebSocket channel server。本章將改用由 Mokoversity 自行開發的平臺：WoT.City。相關資訊可參考：
+
 ```
 https://www.mokoversity.com/wotcity
 ```
 
-Block #3：AutomationJS
-Frontend
-Backbone with Virtual DOM
-
-## Dust Sensor + WebSocket Client 及 Temperature Sensor + WebSocket Client
-
-### Dust Sensor + WebSocket Client
+## Dust Sensor 與 WebSocket Client
 
 撰寫 ARM mbed 程式碼，以下範例結合第五章 Dust Sensor 及第七章 WebSocket Client。
 
 程式碼如下：
 
 ```
-
 #include "mbed.h"
 #include "EthernetInterface.h"
 #include "Websocket.h"
@@ -50,7 +48,7 @@ void up();
 void tick()
 {
     char low_time_buf[256];
-    char buf[256];   
+    char buf[256];
     sprintf( low_time_buf, "%f", low_time / (30.0 * 1000000));
     strcpy(buf, "{"); 
     strcat(buf, "\"lowpulseoccupancytime\":");
@@ -90,13 +88,14 @@ int main() {
     
 }
 ```
-### Temperature Sensor + WebSocket Client
+
+## Temperature Sensor 與 WebSocket Client
 
 撰寫 ARM mbed 程式碼，以下範例結合第三章 Temperature Sensor 及第七章 WebSocket Client。
 
-程式碼如下
-```
+完整程式碼如下：
 
+```
 /* Grove - Temprature Sensor demo v1.0
 *  This sensor detects the enviroment temprature,
 *  Uses a Arch-Pro board with Grove Base Shield
@@ -146,132 +145,25 @@ int main()
     }
 }
 ```
-## Websocket channel server
+## WoT.City
 
-上一章提到 Websocket channel server 扮演封裝 IoT 物件的角色，對 Websocket server 來說，只要能定義好「channel」的結構，就能封裝數以萬計、千萬計的 IoT 物件。「抽像上來看，ARM mbed 仍然是 server 端」，就是這樣的觀念。
+第 7 章章提到 Websocket channel server 扮演封裝 IoT 物件的角色，對 Websocket server 來說，只要能定義好「channel」的結構，就能封裝數以萬計、千萬計的 IoT 物件。「抽像上來看，ARM mbed 仍然是 server 端」，就是這樣的觀念。
 
-### WoT.City
+Wot.City 為 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel Server。
 
-Wot.City 為 Mokoversity 開發，專為 ARM mbed 使用的 Websocket channel Server。以下為 WebSocket Server 的程式碼，使用 node.js 開發，當 WebSocket Server 接收到資料後，即時 push 給用戶（user）。
-```
-
-var http = require("http");
-var url = require("url");
-
-var WebSocketServer = require('websocket').server;
-
-// Connected WebSocket clients
-var clients = [];
-
-function start(route, handlers) {
-  function onRequest(request, response) {
-    var pathname = url.parse(request.url).pathname;
-    var query = url.parse(request.url).query;
-
-    //console.log("HTTP Request: " + pathname);
-
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("Hello World");
-    response.end();
-  }
-
-  var server = http.createServer(onRequest).listen(80, function() {
-     console.log("Server has started and is listening on port 80.");
-  });
-
-  wsServer = new WebSocketServer({
-    httpServer: server,
-    autoAcceptConnections: false
-  });
-
-  var push = function(path, data) {
-    var connections = clients[path];
-
-    if (typeof connections === 'undefined')
-        return;
-
-    //console.log('Pushing [' + data + '] to ' + path);
-
-    for (var i = 0; i < connections.length; i++) {
-        connections[i].sendUTF(data);
-    }
-  }
-
-  var onWsConnMessage = function(message) {
-    if (message.type == 'utf8') {
-      //console.log('onWsConnMessage: ' + this.pathname);
-      //console.log('Received: ' + message.utf8Data);
-
-      // Is it a sender ? Yes, then push data to all viewers.
-      if (typeof (this.viewer) !== 'undefined')
-          push(this.viewer, message.utf8Data);
-    } else if (message.type == 'binary') {
-      console.log('Received binary data.');
-    }
-  };
-
-  var onWsConnClose = function(reasonCode, description) {
-    //console.log('Peer disconnected with reason: ' + reasonCode);
-  };
-
-  function onWsRequest(request) {
-    var connection = request.accept('', request.origin);
-
-    //console.log("[2]: onWsRequest");
-    //console.log("[3]: resource: " + request.resource);
-
-    route(request.resource, connection, handlers, clients);
-
-    connection.on('message', onWsConnMessage);
-    connection.on('close', onWsConnClose);
-  }
-
-  function onWsConnect(webSocketConnection) {
-    //console.log("[1]: onWsConnect");
-
-    //webSocketConnection.on('message', onWsConnMessage);
-    //webSocketConnection.on('close', onWsConnClose);
-  }
-
-  wsServer.on('request', onWsRequest);
-  wsServer.on('connect', onWsConnect);
-}
-```
-這裡使用的 WebSocket 模組，要使用 npm 工具另外安裝。利用 npm 安裝 WebSocket-Node：
-
-```
- $ npm install websocket
-```
-
-WebSocket-Node 原始碼可由 Github 上取得：
-
-```
-https://github.com/Worlize/WebSocket-Node
-```
-程式碼說明：
-
-先將 WebSocket-Node 的 'server' 匯入，如程式碼第3行。其它的細節如下：
-
-1. 將 HTTP Server 物件，聚合至（傳遞）WebSocket Server。WebSocker Server 的物件名稱為 wsServer
-2. 在 wsServer 物件裡註冊一個 Request Handler，即 onWsRequest() 函數
-3. 當 WebSocket 的連線請求發生時，便回呼此函數
-4. 為此連線註冊 Message Handler 
-5. 收到用戶端傳送過來的訊息時，回呼此函數，將收到的訊息儲存，並將訊息即時（Real-time）推送（Push）到所有的用戶端
-
-
-## How to use it
-
-ARM mbed 裝置利用下方的 URL，建立一個與 server 溝通的連線，這裏的 server 指得是 Websocket server。接著，我們就可以透過網際網路將資料送到 Webssocket server。
+ARM mbed 裝置可使用以下的 URL，建立一個與 WebSocket Server 的連線：
 
 ```
 ws://wot.city/object/[name]/send
 ```
 
-我們必須為這個連線指定一個物件名稱，例如：
+*[name]* 的部份是 ARM mbed 裝置的名稱（IoT Object），為 IoT 裝置指定一個物件名稱，例如：
 
 ```
 ws://wot.city/object/mbedtaiwan/send
 ```
+
+接著，我們就可以透過網際網路將資料送到 WebSocket server。
 
 打開瀏覽器，網頁就能利用以下的 URL 建立一個跟 Websocket server 的連線，並且觀看從 Websocket server 接收過來的資料。
 

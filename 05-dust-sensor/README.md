@@ -2,8 +2,8 @@
 
 目前為止，我們已經具備以下的背景知識：
 
-* ARM mbed 與 LPC1768 入門，基本 GPIO 控制
-* ARM mbed 的 Network API，讓 LPC1768 上網
+* ARM mbed 與 LPC1768 入門，基本 GPIO 控制（第 2 章）
+* ARM mbed 的 Network API，讓 LPC1768 上網（第 4 章）
 
 接著，就是 ARM mbed 的重點戲了：REST API。
 

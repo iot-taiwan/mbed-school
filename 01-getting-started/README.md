@@ -8,7 +8,7 @@ IoT 的第 4 個階段，將聚焦在 Advanced Sensor Fusion 與 Physical-World 
 
 目前有許多 ARM mbed 的開發板，這些開發板並不是「另一個 Arduino」硬體，而是更能符合 WoT 理念的 RESTful device。同樣的硬體，不同的觀念、技術框架與商業思維，能帶來不同的產品思維與商業模式。所以，ARM mbed 與 WoT 帶來的，將是一場新的革命與機會。
 
-本書前 4 章是 ARM mbed 的入門學習。從第 5 章開始，將加入 REST device 觀念，透過一系列的創作與實習，帶給大家不一樣的 IoT 技術視野。
+本書前 4 章是 ARM mbed 的入門學習。從第 5 章開始，將加入 REST device （Representational State Transfer device）觀念，透過一系列的創作與實習，帶給大家不一樣的 IoT 技術視野。
 
 [1]: http://www.jollen.org/blog/2015/01/arm-mbed-1-physical-web.html
 

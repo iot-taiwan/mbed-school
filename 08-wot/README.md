@@ -4,6 +4,7 @@ WoT 是 IoT 的 Application Layer，並且是使用 Web 技術來打造 applicat
 
 雖然 WoT 都是使用目前已經存在的軟體技術，但許多觀念都要重新思考，例如：Software Architecture、Application Framework 與 Composition Layer。
 
+一個重新定義的 application 框架，或是 frontend 的 Composition layer 設計，可能會是 WoT 的關鍵技術。
 本章節重點為 AutomationJS，這是利用 Virtual DOM 技術，來進行 UI Boundary Composition 的專案。
 
 AutomationJS 是一個輕量級的 Composition Layer 實作，並且使用 Backbone 做為 Model-View 的基礎；未來也將接軌 HTML 5 的新技術標準－Shadow DOM。

@@ -51,6 +51,26 @@ mbed 提供許多 Program 與 Library 範本，這裡使用的是一個 LED（�
 
 LPC1786 開發板有大量的 GPIO，可與各種 sensor device 結合，並透過演算法的實作，發展各式應用。
 
+## mbed Compile API
+
+ARM mbed 有公開的 Compile API，如果不想使用 Online Compiler，也不打算安裝 Offline Toolchain 的話，使用 Compile API 是一個不錯的選擇。
+
+使用 *curl* 來呼叫 mbed Compile API：
+
+```
+curl  https://developer.mbed.org/api/v2/tasks/compiler/start/ -X POST -d "platform=mbed-lpc1768&program=mbed_blinky" --user jollen
+```
+
+請將 *platform=* 置換為正確的 mbed 開發板型號，將 *program=* 置換為想編譯的 mbed 程式。*program=* 的程式名稱，就是 Online Compiler 上的程式專案名稱。
+
+下載編譯完成的檔案：
+
+```
+curl  https://developer.mbed.org/api/v2/tasks/compiler/sbin -X POST -d "platform=mbed-lpc1768&program=mbed_blinky" --user jollen -o mbed_blinky.bin
+```
+
+再將 *.bin 檔安裝至 mbed 開發板即可。
+
 ## 本書架構
 
 ARM mbed 作業系統本身具備 networking feature（例如：3G、ethernet），因此不再只是扮演傳統 GPIO 控制，或是藍芽傳輸的角色；它可以透過 Websocket 連線，將 sensor data 推送（data push）給伺服器。ARM mbed 作業系統也提供 httpd library，能在 ARM mbed 裝置上發展 REST API，並透過 HTTP 讓 client 端呼叫。

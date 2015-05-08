@@ -6,7 +6,6 @@
 
 1. 取得 ARM mbed 開發板，本文使用的 Arch Pro 是由 Seeed Studio 設計與生產的 ARM mbed IoT ethernet kit。
 2. 申請 [wotcity.com](http://wotcity.com) 帳號。
-3. **tl;dr**: 取得 [.CITY Starter Kit9](http://wotcity.com/docs/dotcity-starter-kit)
 
 ## Step 1：匯入 ARM mbed 專案
 
@@ -112,6 +111,31 @@ EthernetInterface eth;
 
 圖 1.5：Drag and Drop 更新 firmware
 
-## Step 5：
+## Step 6：開始 Data Push
 
+更新 firmware 並啟動 Arch Pro 後，溫度感測器數據就會開始推送（Data Push）到 Internet。要知道目前的 Data Push 情況，可以使用 WoT.City 的監視看功能：
 
+1. 登入 [http://wotcity.com/](http://wotcity.com/) 
+2. 點選 [http://wotcity.com/account](http://wotcity.com/account) 頁面左邊的 *Device Manager*
+3. 在列表中找到所使用的 *Device Name*
+4. *Status* 欄位會切換為 *Live*，表示目前裝置已連上 Internet，如圖 1.6
+5. 點撃 *Manage* 欄位中的 *Watch* 按紐，即可看到即時的推送數據（JSON 格式的文件）
+
+![圖 1.6：裝置顯示為 Live](8.6.png)
+
+圖 1.6：裝置顯示為 Live
+
+點撃 *Manage* 欄位中的 *Live App* 按紐，可以開啟這個裝置的 web app。目前 WoT.City 的 Live App 功能，暫時只支援溫度感測裝置。未來將可以由使用者自行佈署 Live App。
+
+## Step 7：製作 Web Frontend
+
+Live App 的功能其實是一個 web frontend。想自行打造 Live App 的創客，可使用 .CITY Starter Kit。**tl;dr**: 取得 [.CITY Starter Kit](http://wotcity.com/docs/dotcity-starter-kit)。
+
+.CITY Starter Kit 使用 *Backbone.View* 與 *Backbone.Model* 做為主要的 framework。但在 *render()* 方面，則是不同的設計，對 *Backbone.Model* 也做了小幅度的重構，以支援 Dataset-View 的設計模式。.CITY Starter Kit 的主要特色如下：
+
+* Use *Backbone.Model* to composite streaming data.
+* Use virtual dom for view boundary composition.
+* Dataset-View framework pattern
+* Integrate WoT.City websocket broker service
+
+以上特色實作於 [AutomationJS](https://github.com/wotcity/automationjs)，並整合在 .CITY Starter Kit 裡。

@@ -11,7 +11,7 @@
 
 至 [https://developer.mbed.org/](https://developer.mbed.org/) 申請開發者帳號，再進入 [Online Compiler](https://developer.mbed.org/compiler/) 環境的 Workspace 環境。如圖 1.1。
 
-![圖 1.1：mbed 的 workspace](1.1_workspace.png)
+![圖 1.1：mbed 的 workspace](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/1.1_workspace.png)
 
 圖 1.1：mbed 的 workspace
 
@@ -24,11 +24,11 @@
 5. 將專案展開後，可以找到 *main.cpp* 主程式
 6. 完成專案匯入
 
-![圖 1.2：Import Wizard](8.2.png)
+![圖 1.2：Import Wizard](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/8.2.png)
 
 圖 1.2：Import Wizard
 
-![圖 1.3：輸入專案網址](8.3.png)
+![圖 1.3：輸入專案網址](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/8.3.png)
 
 圖 1.3：輸入專案網址
 
@@ -69,7 +69,7 @@ EthernetInterface eth;
 3. 系統會建立一個新的裝置
 4. 從列表中的 *Device Name (Physical Object)* 欄位 Copy 裝置名稱，如圖 1.4
 
-![圖 1.4：取得 Device Name](8.4.png)
+![圖 1.4：取得 Device Name](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/8.4.png)
 
 圖 1.4：取得 Device Name
 
@@ -107,7 +107,7 @@ EthernetInterface eth;
 
 接著將新的 firmware 檔案拉到此資料裡即可，如圖 1.5。更新完成後，請拔除並重新連接 USB，讓 Arch Pro 重新關機。
 
-![圖 1.5：Drag and Drop 更新 firmware](1.3_drag-drop.png)
+![圖 1.5：Drag and Drop 更新 firmware](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/1.3_drag-drop.png)
 
 圖 1.5：Drag and Drop 更新 firmware
 
@@ -121,7 +121,7 @@ EthernetInterface eth;
 4. *Status* 欄位會切換為 *Live*，表示目前裝置已連上 Internet，如圖 1.6
 5. 點撃 *Manage* 欄位中的 *Watch* 按紐，即可看到即時的推送數據（JSON 格式的文件）
 
-![圖 1.6：裝置顯示為 Live](8.6.png)
+![圖 1.6：裝置顯示為 Live](https://raw.githubusercontent.com/mbed-taiwan/mbed-school/master/09-wot-city/8.6.png)
 
 圖 1.6：裝置顯示為 Live
 

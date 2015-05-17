@@ -1,8 +1,8 @@
 # 第 3 章：Sensor 元件
 
-第 3 章開始，將使用一些常見的 sensor 元件，實做 IoT 的概念。以下先總覽幾個常用的 sensor 元件。所有元件皆可在 Grove Starter Kit for mbed 套件裡取得。
+Grove Starter Kit for mbed 套件裡取得。
 
-![圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed](1.3_grove-kit.jpg)
+![圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed](1.3_grove-starter-kit-for-mbed.jpg)
 
 圖 3.1：Seeed Studio 設計與生產的 Grove Starter Kit for mbed
 
@@ -14,12 +14,12 @@
 
 pinout 接法
 
-| sensor pin | mbed pin         |
-| ---------- | ---------------- |
-| 1 - SIG    | P21 - DigitalIn  |
-| 2 - NC     | 不用接           |
-| 3 - Vcc    | Vout - 3.3V      |
-| 4 - GND    | GND              |
+| sensor pin | mbed pin        |
+| ---------- | --------------- |
+| 1 - GND    | GND             |
+| 2 - VCC    | VOUT（3.3v）    |
+| 3 - NC     | 不使用          |
+| 4 - SIG    | p21 - DigitalIn |
 
 範例：
 
@@ -27,22 +27,22 @@ pinout 接法
 ```
 #include "mbed.h"
 
-DigitalOut myled(LED1);
+DigitalOut led(LED1);
 DigitalIn button(p21);
 
 int main()
 {
-    while(1){
-
-        if (button)
-            myled = 1 ;          
-        else
-            myled = 0;   
-
-         wait(0.7); // simple debouncing      
+    while(1) {
+        wait(0.1);
+        if (button) {
+            led = 1;
+        } else {
+            led = 0;
+        }
+        wait(0.4); // simple debouncing
     }
-
 }
+
 ```
 
 ### Grove - Buzzer

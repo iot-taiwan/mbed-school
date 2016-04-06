@@ -2,7 +2,7 @@
 	"author": "mbed Taiwan",
 	"url": "",
 	"title": "ARM mbed 物聯網學堂",
-	"about": "本教材內容為舊版的 mbed 教學，在教材更新前，內容僅供參考。",
+	"about": "專案停止維護：本教材內容為舊版的 mbed 教學，內容僅供參考。",
 	"index": [{
 		"chapter": "第 1 章：ARM mbed 起步走",
 		"folder": "01-getting-started",
@@ -33,10 +33,5 @@
 		"folder": "06-mbed-interrupt",
 		"desc": "學習 Interrupt Handling",
 		"holder": "http://lorempixel.com/350/235/"
-	}, {
-		"chapter": "第 7 章：IoT 物件與 Websocket 技術",
-		"folder": "07-data-push",
-		"desc": "使用 Websocket channel server 封裝 IoT objects",
-		"holder": "https://static.mokoversity.com/moow/mbed-school/res/chapter7-holder.jpg"
 	}]
 }

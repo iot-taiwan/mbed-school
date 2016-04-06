@@ -1,6 +1,6 @@
 # mbed school
 
-ARM mbed 開放教材計畫
+DEPRECATED: 本專案已經停止維護，教材為舊版 mbed OS 內容，僅供參考。
 
 ## 共編政策
 

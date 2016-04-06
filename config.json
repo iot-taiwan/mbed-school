@@ -1,8 +1,8 @@
 {
 	"author": "mbed Taiwan",
-	"url": "http://mbed.tw",
+	"url": "",
 	"title": "ARM mbed 物聯網學堂",
-	"about": "「ARM mbed 物聯網學堂」教材由 mbed Taiwan 團隊製作。不漏接 IoT 商機與 ARM mbed 訊息，緊盯 http://mbed.tw",
+	"about": "本教材內容為舊版的 mbed 教學，在教材更新前，內容僅供參考。",
 	"index": [{
 		"chapter": "第 1 章：ARM mbed 起步走",
 		"folder": "01-getting-started",
